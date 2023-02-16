@@ -16,7 +16,7 @@ This is a desktop I made to improve my workflow for all my art related stuff, as
 - **Super+o** is for quick access to my most used apps, you will then be given an option to press a key to open an app, or press Esc to cancel.
 - **Super+Backspace** is the same but for Power and Logout options.
 - **Super+d** is for opening rofi
-- **Super+Shift+d** is for Multi-Monitor display options (right now I only have them for my specific workflow oops)
+- **Super+s** is for Multi-Monitor display options (right now I only have them for my specific workflow oops)
 - **Super+Shift+o** is similar to "Shift+o" but for opening multiple apps at once for specific scenarios (like say "games", this opens Lutris, Steam and Discord simultaneously)
 - **Super+n** is for nvidia-optimus switching (WIP)
 - **Super+r** is kept there from the original i3 config file, it's for resizing windows.
@@ -24,7 +24,7 @@ This is a desktop I made to improve my workflow for all my art related stuff, as
 i3blocks is set so that it includes time, date, volume, brightness, a stopwatch, color picker and the song currently playing in cmus.
 
 pywal is the tool I use to color most of my desktop, it scrapes colors from the image I select from ~Pictures/Wallpapers.
-- To edit the colors, write the path to a new image in the wallpaper section in the i3 configuration file, and reload i3.
+- To edit the colors in i3, write the path to a new image in the wallpaper section in the i3 configuration file, and reload i3.
 
 ## Dependencies
 
@@ -36,7 +36,6 @@ pywal is the tool I use to color most of my desktop, it scrapes colors from the 
 - **pywal** (For scraping colors off wallpaper)
 - **picom** (Compositor)
 - **kitty** (Terminal)
-- **fish** (Shell for kitty)
 - **zsh** (Shell)
 - **oh-my-zsh** (Plugins for zsh)
 - **neovim** (Editor, for use in terminal)
@@ -60,6 +59,8 @@ pywal is the tool I use to color most of my desktop, it scrapes colors from the 
 
 ## Made to Work out of the Box with:
 
+- Kitty
+- Zsh
 - Krita*
 - Blender
 - Inkscape
@@ -67,6 +68,7 @@ pywal is the tool I use to color most of my desktop, it scrapes colors from the 
 - OpenToonz (Flatpak)
 - Ardour
 - Godot
+- qutebrowser
 - Firefox (Flatpak)
 - Librewolf (Flatpak)
 - Telegram (Flatpak)
@@ -74,15 +76,15 @@ pywal is the tool I use to color most of my desktop, it scrapes colors from the 
 - Steam
 - Lutris
 - Heroic Games launcher (Flatpak)
-- pico8**
+- pico8
 - Veadotube Mini**
 
 NOTES
 - * I launch Krita in windowed mode because some plugins don't play nicely with i3wm.
-- **For apps like pico8 I downloaded them and placed them somewhere in my $PATH. 
 - **Veadotube mini in particular I decided to make a variable in the i3 configuration file to execute VeadoTube detached from a kitty terminal.
 
 ## Installation
 1. Make sure all dependencies are installed
 2. Git clone this repository
 3. Use a tool like GNU Stow to sys-link all dotfiles, or move the ones you'd like to install individually.
+4. Pick a wallpaper from your pictures folder and in the wallpaper section of the i3 config file (~/.config/i3/config) change the path to the new wallpaper.
