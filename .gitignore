@@ -1,0 +1,6 @@
+.gitconfig
+
+# Ignores melpa archives in emacs
+.emacs.d/.local/
+
+

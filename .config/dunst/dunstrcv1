@@ -1,0 +1,46 @@
+geometry = "900x5-90+60"
+# Height of separator between notifications
+separator_height = 6
+# Vertical padding
+padding = 8
+# Horizontal padding
+horizontal_padding = 8
+# Border width.  Set to 0 to disable
+frame_width = 4
+# Border color
+frame_color = "#89B4FA"
+# Border color between notifications frame = same as above
+separator_color = frame
+# Don't remove messages, id the user is idle
+# Set to 0 to disable
+idle_treshold = 0
+# age of message
+show_age_treshold = 60
+max_icon_size = 60
+browser = usr/bin/qutebrowser
+corner_radius = 5
+mouse_middle_click = close_all
+mouse_left_click = do_action
+mouse_right_click = close_current
+
+
+font = Noto Sans 24
+
+# Which monitor should the notifications be displayed on
+monitor = 0
+follow = mouse
+[urgency_low]
+    background = "#1E1E2E"
+    foreground = "#CDD6F4"
+    timeout = 5
+
+[urgency_normal]
+	foreground = "#1E1E2E"
+	frame_color = "#CDD6F4"
+    timeout = 10
+
+[urgency_critical]
+	background = "#1E1E2E"
+	foreground = "#CDD6F4"
+	frame_color = "#FAB387"
+	timeout = 0
