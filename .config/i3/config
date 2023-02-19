@@ -246,7 +246,7 @@ mode "$mode_launcher" {
     bindsym u exec ardour7
     bindsym b exec blender
     bindsym O exec "flatpak run io.github.OpenToonz"
-    bindsym m exec $cmus
+    bindsym m exec $cmus; exec cmusCoverViewer
     bindsym v exec $veado
 
     bindsym Escape mode "default"
@@ -265,10 +265,6 @@ for_window [class="ProtonUp-Qt"] floating enable
 for_window [class="System-config-printer.py"] floating enable
 for_window [class="krita"] floating enable
 
-#Default oritentation
-#for_window [class="obs"] orientation vertical
-#for_window [class="veadotube mini.x86_64""] orientation auto
-
 # border settings for different windows
 for_window [class="krita"] border none
 for_window [class="Emacs"] border none
@@ -279,6 +275,8 @@ for_window [class="obs"] border none
 for_window [class="Ardour"] border none
 for_window [class="OpenToonz"] border none
 for_window [class="Discord"] border none
+for_window [class="cmusCoverViewer"] border none
+for_window [class="Music"] border none
 
 set $ws_launcher Launch: (a)rt, (s)treaming, 
 bindsym $mod+Shift+o mode "$ws_launcher"
