@@ -56,6 +56,8 @@ pywal is the tool I use to color most of my desktop, it scrapes colors from the 
 - **pfetch** Used in terminal greeting
 - **bunnyfetch**  Used in terminal greeting
 - **flatpak** for apps that require flatpak
+- **Bibata Modern Ice** cursor theme
+- **Catpuccin Machiatto** gtk theme
 
 ## Made to Work out of the Box with:
 
