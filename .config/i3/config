@@ -352,8 +352,8 @@ bindsym $mod+x exec scrot --select $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H
 set $mode_display Config monitor resolution - Laptop (l) - Drawing Tablet (t)
 
 mode "$mode_display" {
-    bindsym l exec --no-startup-id xrandr --output eDP-1 --primary --auto --output && wal -i $wal
-    bindsym t exec --no-startup-id xrandr --output eDP-1 --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --below eDP-1 && wal -i $wal 
+    bindsym l exec --no-startup-id xrandr --output eDP-1 --primary --auto --output && wal -i $wal --backend colorz
+    bindsym t exec --no-startup-id xrandr --output eDP-1 --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --below eDP-1 && wal -i $wal --backend colorz
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
