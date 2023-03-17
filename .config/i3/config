@@ -96,10 +96,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+#bindsym $mod+c focus child
 
 # shortcut to change window border
 bindsym $mod+i border normal    0
@@ -295,20 +295,20 @@ mode "$ws_launcher" {
 ##### WALLPAPER #####
 #####################
 
-set $wal Pictures/Wallpapers/panda1.jpg
+set $wal Pictures/Wallpapers/panda7.jpg
 
 ###################
 ##### STARTUP #####
 ###################
 
-exec_always --no-startup-id wal -i $wal
+exec_always --no-startup-id wal -i $wal --backend colorz
 exec_always --no-startup-id picom
 exec_always --no-startup-id dunst
 exec --no-startup-id cbatticon
 exec --no-startup-id nm-applet
 # uncomment below for polybar (currently breaks multiple monitors)
 # exec --no-startup-id bash /home/alisonkit/.config/polybar/launch.sh --forest
-# exec --no-startup-id sxhkd
+exec --no-startup-id sxhkd
 
 ############################################
 ##### LOCK, SUSPEND, RESTART, SHUTDOWN #####
@@ -395,15 +395,15 @@ mode "$optimus" {
     tray_padding 3
 
     colors {
-        background  $dk
-        statusline  #ffffff
-        separator   $dk
+        background  $c0
+        statusline  $cw
+        separator   $c0
         # class             border  backgr. text
-        focused_workspace   $db     $db     #ffffff
-        active_workspace    $dk     $dk     #ffffff
-        inactive_workspace  $dk     $dk     #ffffff
-        urgent_workspace    #d64e4e #d64e4e #ffffff
-        binding_mode        #229c56 #229c56 #ffffff
+        focused_workspace   $c1     $c1     $cw
+        active_workspace    $c0     $c0     $cw
+        inactive_workspace  $c0     $c0     $cw
+        urgent_workspace    $ur     $ur     $cw
+        binding_mode        $cg     $cg     $cw
     }
 }
 
@@ -429,20 +429,25 @@ default_floating_border normal
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $aw i3wm.color6 #f0f0f0
-set_from_resource $iw i3wm.color5 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
-set_from_resource $db i3wm.color1 #f0f0f0
-set_from_resource $dk i3wm.color0 #f0f0f0
+set_from_resource $c7 i3wm.color7 #f0f0f0
+set_from_resource $c6 i3wm.color6 #f0f0f0
+set_from_resource $c5 i3wm.color5 #f0f0f0
+set_from_resource $c4 i3wm.color4 #f0f0f0
+set_from_resource $c3 i3wm.color3 #f0f0f0
+set_from_resource $c2 i3wm.color2 #f0f0f0
+set_from_resource $c1 i3wm.color1 #f0f0f0
+set_from_resource $c0 i3wm.color0 #f0f0f0
+set $cw #ffffff
+set $ur #f44336
+set $cg #229c56
 
-# class                 border  backgr. text    indicator child_border
-client.focused          $aw     $aw     #ffffff  $aw       $aw
-client.focused_inactive $iw     $iw     $fg      $iw       $iw
-client.unfocused        $bg     $bg     $fg      $bg       $bg
-client.urgent           #f44336 #f44336 #f44336  #f44336   #f44336
-client.placeholder      $bg     $bg     $fg      $bg       $bg
+# class                 border  backgr. text   indicator child_border
+client.focused          $c6     $c6     $cw    $c6       $c6
+client.focused_inactive $c5     $c5     $cw    $c5       $c5
+client.unfocused        $c3     $c3     $cw    $c3       $c3
+client.urgent           $ur     $ur     $ur    $ur       $ur
+client.placeholder      $c2     $c2     $c3    $c2       $c2
 
-client.background       $dk
+client.background       $c0
 
 # to edit status bar colors, see status bar section

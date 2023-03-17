@@ -77,7 +77,7 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
+    # git
     vi-mode
     autojump
     zsh-autocomplete
@@ -121,13 +121,18 @@ alias usb="sudo mount /dev/sda1 /media/usb/"
 alias uusb="sudo umount /media/usb/"
 alias zrc="nvim ~/.zshrc"
 alias conf="cd ~/.config"
-alias i3c="nvim ~/.config/i3/conf"
-alias kic="nvim ~/.config/kitty/conf"
-alias i3b="nvim ~/.config/i3blocks/config"
+alias i3c="nvim ~/.dotfiles/.config/i3/config"
+alias kic="nvim ~/.dotfiles/.config/kitty/kitty.conf"
+alias i3b="nvim ~/.dotfiles/.config/i3blocks/config"
+alias drc="nvim ~/.dotfiles/.config/dunst/dunstrc"
+alias nfrc="nvim ~/.dotfiles/.config/neofetch/config.conf"
+alias vrc="nvim ~/.dotfiles/.vimrc"
 alias i3r="i3-msg restart"
-alias ophy="optimus-manager --switch hybrid"
-alias opin="optimus-manager --switch integrated"
-alias opnv="optimus-manager --switch nvidia"
+alias tn="tmux new -s"
+alias ta="tmux attach-session -t"
+alias ophy="optimus-manager --switch hybrid --no-confirm"
+alias opin="optimus-manager --switch integrated --no-confirm"
+alias opnv="optimus-manager --switch nvidia --no-confirm"
 alias veado="Applications/AppImages/veadotubemini/veadotube\ mini.x86_64 &disown"
 alias ips="curl ipinfo.io/ip && curl ipinfo.io/city && curl ipinfo.io/region &&  curl ipinfo.io/country && curl ipinfo.io/loc"
 alias chad="cat ~/Applications/chad"

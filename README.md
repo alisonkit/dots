@@ -34,6 +34,7 @@ pywal is the tool I use to color most of my desktop, it scrapes colors from the 
 - **i3lock** (Lock screen for i3wm)
 - **git** for cloning this repo
 - **pywal** (For scraping colors off wallpaper)
+- **colorz** (Alternate backend for wal)
 - **picom** (Compositor)
 - **kitty** (Terminal)
 - **zsh** (Shell)
