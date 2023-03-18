@@ -204,6 +204,7 @@ assign [class="Zathura"] $ws6
 assign [class="Pavucontrol"] $ws6
 assign [class="Lutris"] $ws7
 assign [class="Steam"] $ws7
+assign [class="steamwebhelper"] $ws7
 assign [class="heroic"] $ws7
 assign [class="ProtonUp-Qt"] $ws7
 assign [class="PrismLauncher"] $ws7
@@ -277,6 +278,7 @@ for_window [class="OpenToonz"] border none
 for_window [class="Discord"] border none
 for_window [class="cmusCoverViewer"] border none
 for_window [class="Music"] border none
+for_window [class="steamwebhelper"] border none
 
 set $ws_launcher Launch: (a)rt, (s)treaming, 
 bindsym $mod+Shift+o mode "$ws_launcher"

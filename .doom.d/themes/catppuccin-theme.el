@@ -68,23 +68,26 @@ Must be one of `mocha`, `macchiato`, `frappe`, or `latte`"
                                      (maroon    . "#eba0ac")
                                      (peach     . "#fab387")
                                      (yellow    . "#f9e2af")
-                                     (green     . "#a6e3a1")
+                                     (green     . "#c982a9")
+                                     ;;(green     . "#a6e3a1")
                                      (teal      . "#94e2d5")
                                      (sky       . "#89dceb")
                                      (sapphire  . "#74c7ec")
-                                     (blue      . "#89b4fa")
+                                     (blue      . "#9689f9")
+                                     ;;(blue      . "#89b4fa")
                                      (lavender  . "#b4befe")
-                                     (text      . "#cdd6f4")
+                                     (text      . "#dbbcc0")
                                      (subtext1  . "#bac2de")
                                      (subtext0  . "#a6adc8")
                                      (overlay2  . "#9399b2")
                                      (overlay1  . "#7f849c")
                                      (overlay0  . "#6c7086")
-                                     (surface2  . "#585b70")
-                                     (surface1  . "#45475a")
+                                     (surface2  . "#775066")
+                                     (surface1  . "#704668")
                                      (surface0  . "#313244")
-                                     (base      . "#1e1e2e")
-                                     (mantle    . "#181825")
+                                     (base      . "#190609")
+                                     (mantle    . "#14040d")
+                                     ;;(mantle    . "#190609")
                                      (crust     . "#11111b"))
   "Colors used for catppuccin-mocha"
   :tag "Mocha Colors"
@@ -254,7 +257,7 @@ Must be one of `mocha`, `macchiato`, `frappe`, or `latte`"
                 (ctp-crust            (catppuccin-get-color 'crust) (catppuccin-quantize-color (catppuccin-get-color 'crust)))
 
                 ;; TODO: automatically lighten base to create ctp-current
-                (ctp-current    (if (eq catppuccin-flavor 'latte) "#ffffff" "#262637"))))
+                (ctp-current    (if (eq catppuccin-flavor 'latte) "#ffffff" "#300f14"))))
       (faces '(;; default / basic faces
                (cursor :background ,ctp-rosewater)
                (default :background ,ctp-base :foreground ,ctp-text)
@@ -657,28 +660,54 @@ Must be one of `mocha`, `macchiato`, `frappe`, or `latte`"
                (magit-process-ng :foreground ,ctp-peach :weight bold)
                (magit-process-ok :foreground ,ctp-green :weight bold)
                ;; markdown
-               (markdown-blockquote-face :foreground ,ctp-green)
+               (markdown-blockquote-face :foreground ,ctp-pink)
                (markdown-code-face :foreground ,ctp-text)
                (markdown-footnote-face :foreground ,ctp-yellow)
                (markdown-header-face :weight normal)
                (markdown-header-face-1
-                :foreground ,ctp-blue
+                :foreground ,ctp-lavender
                 ,@(when catppuccin-enlarge-headings
                     (list :height catppuccin-height-title-1)))
                (markdown-header-face-2
-                :foreground ,ctp-blue
+                :foreground ,ctp-lavender
                 ,@(when catppuccin-enlarge-headings
                     (list :height catppuccin-height-title-2)))
                (markdown-header-face-3
-                :foreground ,ctp-blue
+                :foreground ,ctp-lavender
                 ,@(when catppuccin-enlarge-headings
                     (list :height catppuccin-height-title-3)))
                (markdown-header-face-4 :foreground ,ctp-blue)
                (markdown-header-face-5 :foreground ,ctp-blue)
                (markdown-header-face-6 :foreground ,ctp-blue)
-               (markdown-inline-code-face :foreground ,ctp-green)
+               (markdown-inline-code-face :foreground ,ctp-pink)
                (markdown-plain-url-face :inherit link)
-               (markdown-pre-face :foreground ,ctp-green)
+               (markdown-pre-face :foreground ,ctp-pink)
+               (markdown-table-face :foreground ,ctp-text)
+               (markdown-list-face :foreground ,ctp-mauve)
+               (markdown-language-keyword-face :inherit font-lock-comment-face)
+                ;; fountain
+               (markdown-blockquote-face :foreground ,ctp-pink)
+               (markdown-code-face :foreground ,ctp-text)
+               (markdown-footnote-face :foreground ,ctp-yellow)
+               (markdown-header-face :weight normal)
+               (markdown-header-face-1
+                :foreground ,ctp-lavender
+                ,@(when catppuccin-enlarge-headings
+                    (list :height catppuccin-height-title-1)))
+               (markdown-header-face-2
+                :foreground ,ctp-lavender
+                ,@(when catppuccin-enlarge-headings
+                    (list :height catppuccin-height-title-2)))
+               (markdown-header-face-3
+                :foreground ,ctp-lavender
+                ,@(when catppuccin-enlarge-headings
+                    (list :height catppuccin-height-title-3)))
+               (markdown-header-face-4 :foreground ,ctp-blue)
+               (markdown-header-face-5 :foreground ,ctp-blue)
+               (markdown-header-face-6 :foreground ,ctp-blue)
+               (markdown-inline-code-face :foreground ,ctp-pink)
+               (markdown-plain-url-face :inherit link)
+               (markdown-pre-face :foreground ,ctp-pink)
                (markdown-table-face :foreground ,ctp-text)
                (markdown-list-face :foreground ,ctp-mauve)
                (markdown-language-keyword-face :inherit font-lock-comment-face)
