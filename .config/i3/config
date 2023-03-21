@@ -138,7 +138,7 @@ set $ws5 "5:   Chat"
 set $ws6 "6:   Media"
 set $ws7 "7:   Gayming"
 set $ws8 "8:   Streaming"
-set $ws9 "9"
+set $ws9 "9: Presentation"
 set $ws10 "10"
 
 # switch to workspace
@@ -236,7 +236,7 @@ set $cava exec kitty --name Cava --class Cava cava
 set $ranger exec kitty --name Ranger --class Ranger ranger
 
 # Application Launchers
-set $mode_launcher Launch: krit[a] [e]macs libre[w]olf [t]elegram [d]iscord [s]team [o]bs [b]lender [q]utebrowser c[m]us [l]utris qbi[T]orrent [g]odot ardo[u]r [O}penToonz
+set $mode_launcher Launch: krit[a] [e]macs [t]elegram [d]iscord [s]team [o]bs [b]lender [q]utebrowser c[m]us [l]utris qbi[T]orrent [g]odot ardo[u]r [O}penToonz [i]nkscape
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -256,6 +256,7 @@ mode "$mode_launcher" {
     bindsym O exec "flatpak run io.github.OpenToonz"
     bindsym m exec $cmus; exec cmusCoverViewer
     bindsym v exec $veado
+    bindsym i exec inkscape
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -291,6 +292,11 @@ for_window [class="steamwebhelper"] border none
 for_window [class="Music"] layout tabbed 
 for_window [class="obs"] layout tabbed 
 for_window [class="veadotube mini.x86_64"] layout tabbed 
+for_window [class="krita"] layout tabbed 
+for_window [class="Blender"] layout tabbed 
+for_window [class="Inkscape"] layout tabbed 
+for_window [class="Emacs"] layout tabbed 
+for_window [class="Godot"] layout tabbed 
 
 set $ws_launcher Launch: (a)rt, (s)treaming, 
 bindsym $mod+Shift+o mode "$ws_launcher"
