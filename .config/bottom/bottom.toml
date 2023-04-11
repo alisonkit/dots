@@ -20,7 +20,7 @@
 # Whether to group processes with the same name together by default.
 #group_processes = false
 # Whether to make process searching case sensitive by default.
-#case_sensitive = false
+case_sensitive = false
 # Whether to make process searching look for matching the entire word by default.
 #whole_word = false
 # Whether to make process searching use regex by default.
@@ -54,11 +54,11 @@
 # Built-in themes.  Valid values are "default", "default-light", "gruvbox", "gruvbox-light", "nord", "nord-light"
 #color = "default"
 # Show memory values in the processes widget as values by default
-#mem_as_value = false
+mem_as_value = true
 # Show tree mode by default in the processes widget.
 #tree = false
 # Shows an indicator in table widgets tracking where in the list you are.
-#show_table_scroll_position = false
+show_table_scroll_position = true
 # Show processes as their commands by default in the process widget.
 #process_command = false
 # Displays the network widget with binary prefixes.
@@ -115,28 +115,28 @@
 # All widgets must have the type value set to one of ["cpu", "mem", "proc", "net", "temp", "disk", "empty"].
 # All layout components have a ratio value - if this is not set, then it defaults to 1.
 # The default widget layout:
-#[[row]]
-#  ratio=30
-#  [[row.child]]
-#  type="cpu"
-#[[row]]
-#    ratio=40
-#    [[row.child]]
-#      ratio=4
-#      type="mem"
-#    [[row.child]]
-#      ratio=3
-#      [[row.child.child]]
-#        type="temp"
-#      [[row.child.child]]
-#        type="disk"
-#[[row]]
-#  ratio=30
-#  [[row.child]]
-#    type="net"
-#  [[row.child]]
-#    type="proc"
-#    default=true
+[[row]]
+  ratio=30
+  [[row.child]]
+  type="cpu"
+[[row]]
+    ratio=30
+    [[row.child]]
+      ratio=4
+      type="mem"
+    [[row.child]]
+      ratio=3
+      [[row.child.child]]
+        type="temp"
+      [[row.child.child]]
+        type="disk"
+[[row]]
+  ratio=40
+  [[row.child]]
+    type="net"
+  [[row.child]]
+    type="proc"
+    default=true
 
 
 # Filters - you can hide specific temperature sensors, network interfaces, and disks using filters.  This is admittedly
