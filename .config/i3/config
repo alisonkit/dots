@@ -273,6 +273,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="ProtonUp-Qt"] floating enable
 for_window [class="System-config-printer.py"] floating enable
 for_window [class="krita"] floating enable
+for_window [class="git-credential-manager-ui"] floating enable
 
 # border settings for different windows
 for_window [class="krita"] border none
