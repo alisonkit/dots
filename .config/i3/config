@@ -33,7 +33,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec kitty --single-instance
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id dmenu_run
@@ -230,10 +230,10 @@ bindsym $mod+Tab move workspace to output next
 
 #Set paths for custom applications
 set $veado exec Applications/AppImages/veadotubemini/veadotube\ mini.x86_64 &disown
-set $cmus exec kitty --name Music --class Music cmus 
-set $btm exec kitty --name SysMo --class SYsMo btm 
-set $cava exec kitty --name Cava --class Cava cava
-set $ranger exec kitty --name Ranger --class Ranger ranger
+set $cmus exec kitty --single-instance --name Music --class Music cmus 
+set $btm exec kitty --single-instance --name SysMo --class SYsMo btm 
+set $cava exec kitty --single-instance --name Cava --class Cava cava
+set $ranger exec kitty --single-instance --name Ranger --class Ranger ranger
 
 # Application Launchers
 set $mode_launcher Launch: krit[a] [e]macs [t]elegram [d]iscord [s]team [o]bs [b]lender [q]utebrowser c[m]us [l]utris qbi[T]orrent [g]odot ardo[u]r [O}penToonz [i]nkscape
@@ -325,7 +325,7 @@ set $wal Pictures/Wallpapers/panda7.jpg
 exec_always --no-startup-id wal -i $wal --backend colorz
 exec_always --no-startup-id picom
 exec_always --no-startup-id dunst
-exec --no-startup-id cbatticon
+# exec --no-startup-id cbatticon
 exec --no-startup-id nm-applet
 # uncomment below for polybar (currently breaks multiple monitors)
 # exec --no-startup-id bash /home/alisonkit/.config/polybar/launch.sh --forest
