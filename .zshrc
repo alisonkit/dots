@@ -6,7 +6,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 figlet -f small Hello, Alison! | lolcat
 bunnyfetch
-cal
 
 eval $(thefuck --alias)
 
@@ -135,6 +134,7 @@ alias gc="git commit -m "
 alias gp="git push"
 alias gb="git checkout "
 alias gm="git merge "
+alias gst="git status"
 alias ophy="optimus-manager --switch hybrid --no-confirm"
 alias opin="optimus-manager --switch integrated --no-confirm"
 alias opnv="optimus-manager --switch nvidia --no-confirm"

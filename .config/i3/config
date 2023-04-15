@@ -240,23 +240,23 @@ set $mode_launcher Launch: krit[a] [e]macs [t]elegram [d]iscord [s]team [o]bs [b
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
-    bindsym a exec krita
-    bindsym e exec emacs
-    bindsym w exec "flatpak run io.gitlab.librewolf-community"
-    bindsym t exec "flatpak run org.telegram.desktop"
-    bindsym d exec "flatpak run com.discordapp.Discord"
-    bindsym q exec qutebrowser
-    bindsym T exec qbittorrent
-    bindsym g exec godot
-    bindsym l exec lutris
-    bindsym s exec steam
-    bindsym o exec "flatpak run com.obsproject.Studio"
-    bindsym u exec ardour7
-    bindsym b exec blender
-    bindsym O exec "flatpak run io.github.OpenToonz"
-    bindsym m exec $cmus; exec cmusCoverViewer
-    bindsym v exec $veado
-    bindsym i exec inkscape
+    bindsym a exec krita, mode "default"
+    bindsym e exec emacs, mode "default"
+    bindsym w exec "flatpak run io.gitlab.librewolf-community", mode "default"
+    bindsym t exec "flatpak run org.telegram.desktop", mode "default"
+    bindsym d exec "flatpak run com.discordapp.Discord", mode "default"
+    bindsym q exec qutebrowser, mode "default"
+    bindsym T exec qbittorren, mode "default"t
+    bindsym g exec godot, mode "default"
+    bindsym l exec lutris, mode "default"s
+    bindsym s exec steam, mode "default"
+    bindsym o exec "flatpak run com.obsproject.Studio", mode "default"
+    bindsym u exec ardour7, mode "default"
+    bindsym b exec blender, mode "default"
+    bindsym O exec "flatpak run io.github.OpenToonz", mode "default"
+    bindsym m exec $cmus; exec cmusCoverViewer, mode "default"
+    bindsym v exec $veado, mode "default"
+    bindsym i exec inkscape, mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -272,8 +272,8 @@ for_window [class="gnome-menu-editor-qt"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="ProtonUp-Qt"] floating enable
 for_window [class="System-config-printer.py"] floating enable
-for_window [class="krita"] floating enable
 for_window [class="GitHub.UI"] floating enable
+for_window [class="Bitwarden"] floating enable
 
 # border settings for different windows
 for_window [class="krita"] border none
@@ -299,14 +299,13 @@ for_window [class="Inkscape"] layout tabbed
 for_window [class="Emacs"] layout tabbed 
 for_window [class="Godot"] layout tabbed 
 
-set $ws_launcher Launch: (a)rt, (s)treaming, 
+set $ws_launcher Launch: (c)hat, (s)treaming, 
 bindsym $mod+Shift+o mode "$ws_launcher"
 
 mode "$ws_launcher" {
     # add krita, ranger, btm
-    bindsym a exec krita; $cmus; $ranger; $btm; workspace   Art; 
-    # add obs, cava
-    bindsym s exec $cmus; $veado; $cava; exec "flatpak run com.obsproject.Studio";
+    bindsym c exec "flatpak run com.discordapp.Discord"; "flatpak run org.telegram.desktop", mode "default"
+    bindsym s exec $cmus; $veado; $cava; exec "flatpak run com.obsproject.Studio"; mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -316,20 +315,20 @@ mode "$ws_launcher" {
 ##### WALLPAPER #####
 #####################
 
-set $wal Pictures/Wallpapers/panda7.jpg
+set $wal Pictures/Wallpapers/panda7.jpg --backend colorz
 
 ###################
 ##### STARTUP #####
 ###################
 
-exec_always --no-startup-id wal -i $wal --backend colorz
+exec_always --no-startup-id wal -i $wal
 exec_always --no-startup-id picom
 exec_always --no-startup-id dunst
-# exec --no-startup-id cbatticon
 exec --no-startup-id nm-applet
 # uncomment below for polybar (currently breaks multiple monitors)
 # exec --no-startup-id bash /home/alisonkit/.config/polybar/launch.sh --forest
 exec --no-startup-id sxhkd
+exec --no-startup-id autotiling
 
 ############################################
 ##### LOCK, SUSPEND, RESTART, SHUTDOWN #####
@@ -370,11 +369,16 @@ bindsym $mod+x exec scrot --focused $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%
 ##### DISPLAY SWITCHING #####
 #############################
 
-set $mode_display Config monitor resolution - Laptop (l) - Drawing Tablet (t)
+set $mode_display Monitor: Auto(a) - Laptop Only(s) - TV Only (e) - Drawing Tablet (t) - Extend Left (l)/Right(r) - Mirror (m)
 
 mode "$mode_display" {
-    bindsym l exec --no-startup-id xrandr --output eDP-1 --primary --auto --output && wal -i $wal --backend colorz
-    bindsym t exec --no-startup-id xrandr --output eDP-1 --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --below eDP-1 && wal -i $wal --backend colorz
+    bindsym a exec --no-startup-id xrandr --auto
+    bindsym s exec --no-startup-id xrandr --output eDP-1 --primary --auto --output HDMI-1-0 --off && wal -i $wal
+    bindsym e exec --no-startup-id xrandr --output eDP-1 --off --output HDMI-1-0 --mode 1920x1080 --rate 60.00 && wal -i $wal
+    bindsym t exec --no-startup-id xrandr --output eDP-1 --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --below eDP-1 && wal -i $wal
+    bindsym l exec --no-startup-id xrandr --output eDP-1 --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --left-of eDP-1 && wal -i $wal
+    bindsym r exec --no-startup-id xrandr --output eDP-1 --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --right-of eDP-1 && wal -i $wal
+    bindsym m exec --no-startup-id xrandr --output eDP-1 --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --same-as eDP-1 && wal -i $wal
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -388,12 +392,12 @@ bindsym $mod+s mode "$mode_display"
 ######################################
 
 set $optimus Switch Nvidia Optimus Graphics Mode (i)ntegrated, (h)ybrid, (n)vidia
-bindsym $mod+n mode "$optimus"
+bindsym $mod+Shift+n mode "$optimus"
 
 mode "$optimus" {
-    bindsym i exec optimus-manger --switch --no-confirm integrated
-    bindsym h exec optimus-manger --switch --no-confirm hybrid
-    bindsym n exec optimus-manger --switch --no-confirm nvidia
+    bindsym i exec optimus-manger --switch integrated --no-confirm && i3-msg exit, mode "default"
+    bindsym h exec optimus-manger --switch hybrid --no-confirm && i3-msg exit, mode "default"
+    bindsym n exec optimus-manger --switch nvidia --no-confirm && i3-msg exit, mode "default"
         
     bindsym Escape mode "default"
     bindsym Return mode "default"
