@@ -18,8 +18,7 @@ This is a desktop I made to improve my workflow for all my art related stuff, as
 - **Super+d** is for opening rofi
 - **Super+s** is for Multi-Monitor display options (right now I only have them for my specific workflow oops)
 - **Super+Shift+o** is similar to "Shift+o" but for opening multiple apps at once for specific scenarios (like say "games", this opens Lutris, Steam and Discord simultaneously)
-- **Super+n** is for nvidia-optimus switching (WIP)
-- **Super+r** is kept there from the original i3 config file, it's for resizing windows.
+- **Super+Shift+n** is for nvidia-optimus switching (WIP)
 
 i3blocks is set so that it includes time, date, volume, brightness, a stopwatch, color picker and the song currently playing in cmus.
 
@@ -37,6 +36,7 @@ pywal is the tool I use to color most of my desktop, it scrapes colors from the 
 - **colorz** (Alternate backend for wal)
 - **picom** (Compositor)
 - **kitty** (Terminal)
+- **w3m** (Backend for image generation in terminal utilities like ranger and neofetch)*
 - **zsh** (Shell)
 - **oh-my-zsh** (Plugins for zsh)
 - **neovim** (Editor, for use in terminal)
@@ -45,26 +45,24 @@ pywal is the tool I use to color most of my desktop, it scrapes colors from the 
 - **cmus** (Music Player)
 - **cava** (Music Visualizer)
 - **dunst** (Notifications)
-- **cbatticon** (Battery indicator)
 - **neofetch** (System info)
-- **qutebrowser** (Browser)
 - **ranger** (File manager)
 - **rofi** (Application Launcher)
-- **Font** Awesome (Fonts and Icons needed for this to work.
-- **xrandr** (To use monitors with)
+- **Fantasque Sans Mono** (Fonts and Icons needed for this to work.)
+- **Font Awesome** (Fonts and Icons needed for this to work.)
+- **xrandr** (To use multiple monitors with)
 - **figlet** Used in terminal greeting
 - **lolcat** Used in terminal greeting
 - **pfetch** Used in terminal greeting
 - **bunnyfetch**  Used in terminal greeting
 - **flatpak** for apps that require flatpak
 - **Bibata Modern Ice** cursor theme
-- **Catpuccin Machiatto** gtk theme
 
 ## Made to Work out of the Box with:
 
 - Kitty
 - Zsh
-- Krita*
+- Krita
 - Blender
 - Inkscape
 - OBS (Flatpak)
@@ -83,7 +81,6 @@ pywal is the tool I use to color most of my desktop, it scrapes colors from the 
 - Veadotube Mini**
 
 NOTES
-- * I launch Krita in windowed mode because some plugins don't play nicely with i3wm.
 - **Veadotube mini in particular I decided to make a variable in the i3 configuration file to execute VeadoTube detached from a kitty terminal.
 
 ## Installation
