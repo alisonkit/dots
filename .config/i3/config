@@ -298,6 +298,7 @@ for_window [class="Blender"] layout tabbed
 for_window [class="Inkscape"] layout tabbed 
 for_window [class="Emacs"] layout tabbed 
 for_window [class="Godot"] layout tabbed 
+for_window [class="qutebrowser"] layout tabbed 
 
 set $ws_launcher Launch: (c)hat, (s)treaming, 
 bindsym $mod+Shift+o mode "$ws_launcher"

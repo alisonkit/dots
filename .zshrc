@@ -109,7 +109,11 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias l="lsd"
-alias la="lsd -a"
+alias la="lsd -A"
+alias ll="lsd -l"
+alias lt="lsd -lt"
+alias lb="lsd -lS"
+alias lsda="lsd -lA"
 alias nv="nvim"
 alias nf="neofetch"
 alias ra="ranger"
