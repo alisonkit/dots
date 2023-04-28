@@ -274,6 +274,7 @@ for_window [class="ProtonUp-Qt"] floating enable
 for_window [class="System-config-printer.py"] floating enable
 for_window [class="GitHub.UI"] floating enable
 for_window [class="Bitwarden"] floating enable
+for_window [class="glaze-0.0.2.exe"] floating enable
 
 # border settings for different windows
 for_window [class="krita"] border none
