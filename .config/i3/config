@@ -246,15 +246,15 @@ mode "$mode_launcher" {
     bindsym t exec "flatpak run org.telegram.desktop", mode "default"
     bindsym d exec "flatpak run com.discordapp.Discord", mode "default"
     bindsym q exec qutebrowser, mode "default"
-    bindsym T exec qbittorren, mode "default"t
+    bindsym T exec qbittorrent, mode "default"
     bindsym g exec godot, mode "default"
-    bindsym l exec lutris, mode "default"s
+    bindsym l exec lutris, mode "default"
     bindsym s exec steam, mode "default"
     bindsym o exec "flatpak run com.obsproject.Studio", mode "default"
     bindsym u exec ardour7, mode "default"
     bindsym b exec blender, mode "default"
     bindsym O exec "flatpak run io.github.OpenToonz", mode "default"
-    bindsym m exec $cmus; exec cmusCoverViewer, mode "default"
+    bindsym m exec $cmus; mode "default"
     bindsym v exec $veado, mode "default"
     bindsym i exec inkscape, mode "default"
 
