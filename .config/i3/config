@@ -324,7 +324,7 @@ set $wal Pictures/Wallpapers/panda7.jpg --backend colorz
 ###################
 
 exec_always --no-startup-id wal -i $wal
-exec_always --no-startup-id picom
+# exec_always --no-startup-id picom
 exec_always --no-startup-id dunst
 exec --no-startup-id nm-applet
 # uncomment below for polybar (currently breaks multiple monitors)
