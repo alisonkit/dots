@@ -324,7 +324,7 @@ set $wal Pictures/Wallpapers/panda7.jpg --backend colorz
 ###################
 
 exec_always --no-startup-id wal -i $wal
-# exec_always --no-startup-id picom
+exec_always --no-startup-id picom
 exec_always --no-startup-id dunst
 exec --no-startup-id nm-applet
 # uncomment below for polybar (currently breaks multiple monitors)
@@ -375,12 +375,12 @@ set $mode_display Monitor: Auto(a) - Laptop Only(s) - TV Only (e) - Drawing Tabl
 
 mode "$mode_display" {
     bindsym a exec --no-startup-id xrandr --auto
-    bindsym s exec --no-startup-id xrandr --output eDP-1 --primary --auto --output HDMI-1-0 --off && wal -i $wal
-    bindsym e exec --no-startup-id xrandr --output eDP-1 --off --output HDMI-1-0 --mode 1920x1080 --rate 60.00 && wal -i $wal
-    bindsym t exec --no-startup-id xrandr --output eDP-1 --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --below eDP-1 && wal -i $wal
-    bindsym l exec --no-startup-id xrandr --output eDP-1 --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --left-of eDP-1 && wal -i $wal
-    bindsym r exec --no-startup-id xrandr --output eDP-1 --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --right-of eDP-1 && wal -i $wal
-    bindsym m exec --no-startup-id xrandr --output eDP-1 --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --same-as eDP-1 && wal -i $wal
+    bindsym s exec --no-startup-id xrandr --output eDP --primary --auto --output HDMI-1-0 --off && wal -i $wal
+    bindsym e exec --no-startup-id xrandr --output eDP --off --output HDMI-1-0 --mode 1920x1080 --rate 60.00 && wal -i $wal
+    bindsym t exec --no-startup-id xrandr --output eDP --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --below eDP-1 && wal -i $wal
+    bindsym l exec --no-startup-id xrandr --output eDP --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --left-of eDP-1 && wal -i $wal
+    bindsym r exec --no-startup-id xrandr --output eDP --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --right-of eDP-1 && wal -i $wal
+    bindsym m exec --no-startup-id xrandr --output eDP --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --same-as eDP-1 && wal -i $wal
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
