@@ -229,7 +229,7 @@ bindsym $mod+Tab move workspace to output next
 ########################
 
 #Set paths for custom applications
-set $veado exec Applications/AppImages/veadotubemini/veadotube\ mini.x86_64 &disown
+set $veado exec Apps/Apps/veadotubemini/veadotube\ mini.x86_64 &disown
 set $cmus exec kitty --single-instance --name Music --class Music cmus 
 set $btm exec kitty --single-instance --name SysMo --class SYsMo btm 
 set $cava exec kitty --single-instance --name Cava --class Cava cava
@@ -246,6 +246,7 @@ mode "$mode_launcher" {
     bindsym t exec "flatpak run org.telegram.desktop", mode "default"
     bindsym d exec "flatpak run com.discordapp.Discord", mode "default"
     bindsym q exec qutebrowser, mode "default"
+    bindsym f exec firefox, mode "default"
     bindsym T exec qbittorrent, mode "default"
     bindsym g exec godot, mode "default"
     bindsym l exec lutris, mode "default"
@@ -275,6 +276,7 @@ for_window [class="System-config-printer.py"] floating enable
 for_window [class="GitHub.UI"] floating enable
 for_window [class="Bitwarden"] floating enable
 for_window [class="glaze-0.0.2.exe"] floating enable
+#for_window [class="Yad"] floating enable
 
 # border settings for different windows
 for_window [class="krita"] border none
@@ -313,30 +315,32 @@ mode "$ws_launcher" {
     bindsym Return mode "default"
 }
 
-#####################
+####################
 ##### WALLPAPER #####
 #####################
 
 set $wal Pictures/Wallpapers/panda7.jpg --backend colorz
+set $pywal Pictures/termcolors.png
 
 ###################
 ##### STARTUP #####
 ###################
 
-exec_always --no-startup-id wal -i $wal
+# exec_always --no-startup-id wal -i $pywal -n
+exec_always --no-startup-id feh --bg-fill $wal
 exec_always --no-startup-id picom
 exec_always --no-startup-id dunst
 exec --no-startup-id nm-applet
 # uncomment below for polybar (currently breaks multiple monitors)
 # exec --no-startup-id bash /home/alisonkit/.config/polybar/launch.sh --forest
-exec --no-startup-id sxhkd
+# exec --no-startup-id sxhkd
 exec --no-startup-id autotiling
 
 ############################################
 ##### LOCK, SUSPEND, RESTART, SHUTDOWN #####
 ############################################
 
-#Set custom image for lockscreen (only works for pn files)
+#Set custom image for lockscreen (only works for png files)
 set $i3lockwall i3lock -i $HOME/Pictures/Wallpapers/panda2.png -t -e -f -b 
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -377,10 +381,10 @@ mode "$mode_display" {
     bindsym a exec --no-startup-id xrandr --auto
     bindsym s exec --no-startup-id xrandr --output eDP --primary --auto --output HDMI-1-0 --off && wal -i $wal
     bindsym e exec --no-startup-id xrandr --output eDP --off --output HDMI-1-0 --mode 1920x1080 --rate 60.00 && wal -i $wal
-    bindsym t exec --no-startup-id xrandr --output eDP --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --below eDP-1 && wal -i $wal
-    bindsym l exec --no-startup-id xrandr --output eDP --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --left-of eDP-1 && wal -i $wal
-    bindsym r exec --no-startup-id xrandr --output eDP --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --right-of eDP-1 && wal -i $wal
-    bindsym m exec --no-startup-id xrandr --output eDP --primary --auto --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --same-as eDP-1 && wal -i $wal
+    bindsym t exec --no-startup-id ./.screenlayout/xppen.sh && feh --bg-fill $wal, mode "default"
+    bindsym l exec --no-startup-id ./.screenlayout/tvleft.sh && feh --bg-fill $wal, mode "default"
+    bindsym r exec --no-startup-id ./.screenlayout/tvright.sh && feh --bg-fill $wal, mode "default"
+    bindsym m exec --no-startup-id ./.screenlayout/mirror.sh && feh --bg-fill $wal, mode "default" 
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -459,17 +463,27 @@ default_floating_border normal
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
-set_from_resource $c7 i3wm.color7 #f0f0f0
-set_from_resource $c6 i3wm.color6 #f0f0f0
-set_from_resource $c5 i3wm.color5 #f0f0f0
-set_from_resource $c4 i3wm.color4 #f0f0f0
-set_from_resource $c3 i3wm.color3 #f0f0f0
-set_from_resource $c2 i3wm.color2 #f0f0f0
-set_from_resource $c1 i3wm.color1 #f0f0f0
-set_from_resource $c0 i3wm.color0 #f0f0f0
+#set_from_resource $c7 i3wm.color7 #f0f0f0
+#set_from_resource $c6 i3wm.color6 #f0f0f0
+#set_from_resource $c5 i3wm.color5 #f0f0f0
+#set_from_resource $c4 i3wm.color4 #f0f0f0
+#set_from_resource $c3 i3wm.color3 #f0f0f0
+#set_from_resource $c2 i3wm.color2 #f0f0f0
+#set_from_resource $c1 i3wm.color1 #f0f0f0
+#set_from_resource $c0 i3wm.color0 #f0f0f0
 set $cw #ffffff
 set $ur #f44336
 set $cg #229c56
+
+# colors to set if youd manually insert colors
+set $c0 #14040d
+set $c1 #704668 
+set $c2 #f38ba8
+set $c3 #c982a9
+set $c4 #f9e2af
+set $c5 #9689f9
+set $c6 #f5c2e7
+set $c7 #94e2d5
 
 # class                 border  backgr. text   indicator child_border
 client.focused          $c6     $c6     $cw    $c6       $c6
