@@ -169,8 +169,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 workspace $ws1 output primary
 workspace $ws2 output nonprimary
 workspace $ws3 output primary
-workspace $ws4 output primary
-workspace $ws5 output primary
+#workspace $ws4 output primary
+#workspace $ws5 output primary
 workspace $ws6 output primary
 workspace $ws7 output primary
 workspace $ws8 output primary
@@ -201,13 +201,11 @@ assign [class="FreeTube"] $ws4
 assign [class="Telegram"] $ws5
 assign [class="discord"] $ws5
 assign [class="Music"] $ws6
-assign [class="mpv"] $ws6
-assign [class="Vimiv"] $ws6
 assign [class="calibre"] $ws6
 assign [class="Zathura"] $ws6
 assign [class="Pavucontrol"] $ws6
 assign [class="Lutris"] $ws7
-assign [class="Steam"] $ws7
+assign [class="steam"] $ws7
 assign [class="steamwebhelper"] $ws7
 assign [class="heroic"] $ws7
 assign [class="ProtonUp-Qt"] $ws7
@@ -267,6 +265,7 @@ mode "$mode_launcher" {
 for_window [class="pentablet"] floating enable
 for_window [class="OpenTabletDriver.UX.Gtk"] floating enable
 for_window [class="Gnome-screenshot"] floating enable
+for_window [class="spectacle"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="gnome-menu-editor-qt"] floating enable
@@ -277,6 +276,9 @@ for_window [class="GitHub.UI"] floating enable
 for_window [class="Bitwarden"] floating enable
 for_window [class="glaze-0.0.2.exe"] floating enable
 #for_window [class="Yad"] floating enable
+
+for_window [class="mpv"] fullscreen enable
+for_window [class="Vimiv"] fullscreen enable
 
 # border settings for different windows
 for_window [class="krita"] border none
@@ -397,8 +399,9 @@ bindsym $mod+s mode "$mode_display"
 ##### OPTIMUS GRAPHICS SWITCHING #####
 ######################################
 
-set $optimus Switch Nvidia Optimus Graphics Mode (i)ntegrated, (h)ybrid, (n)vidia
-bindsym $mod+Shift+n mode "$optimus"
+# uncomment if on arch linux based distro with optimus-manager installed
+#set $optimus Switch Nvidia Optimus Graphics Mode (i)ntegrated, (h)ybrid, (n)vidia
+# bindsym $mod+Shift+n mode "$optimus"
 
 mode "$optimus" {
     bindsym i exec optimus-manger --switch integrated --no-confirm && i3-msg exit, mode "default"
