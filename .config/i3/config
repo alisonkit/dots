@@ -37,7 +37,7 @@ bindsym $mod+Return exec kitty --single-instance
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id dmenu_run
-bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+bindsym $mod+Shift+Return exec "rofi -modi drun,run -show drun"
 
 ###################
 ##### WINDOWS #####
