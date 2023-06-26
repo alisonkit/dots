@@ -28,10 +28,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
-
 # start a terminal
 bindsym $mod+Return exec kitty --single-instance
 
@@ -243,16 +239,14 @@ mode "$mode_launcher" {
     bindsym w exec "flatpak run io.gitlab.librewolf-community", mode "default"
     bindsym t exec "flatpak run org.telegram.desktop", mode "default"
     bindsym d exec "flatpak run com.discordapp.Discord", mode "default"
-    bindsym q exec qutebrowser, mode "default"
     bindsym f exec firefox, mode "default"
-    bindsym T exec qbittorrent, mode "default"
+    bindsym q exec qbittorrent, mode "default"
     bindsym g exec godot, mode "default"
     bindsym l exec lutris, mode "default"
     bindsym s exec steam, mode "default"
     bindsym o exec "flatpak run com.obsproject.Studio", mode "default"
     bindsym u exec ardour7, mode "default"
     bindsym b exec blender, mode "default"
-    bindsym O exec "flatpak run io.github.OpenToonz", mode "default"
     bindsym m exec $cmus; mode "default"
     bindsym v exec $veado, mode "default"
     bindsym i exec inkscape, mode "default"
@@ -416,31 +410,7 @@ mode "$optimus" {
 ##### STATUS BAR #####
 ######################
 
-# start i3bar to display a workspace bar
- bar {
-    status_command          i3blocks
-    bindsym button4         nop
-    bindsym button5         nop
-    position                top
-    tray_output             primary
-    separator_symbol        "·"
-    workspace_buttons       yes
-    strip_workspace_numbers yes
-    tray_padding 4
-    padding 2px 0
 
-    colors {
-        background  $c0
-        statusline  $cw
-        separator   $c0
-        # class             border  backgr. text
-        focused_workspace   $c1     $c1     $cw
-        active_workspace    $c0     $c0     $cw
-        inactive_workspace  $c0     $c0     $cw
-        urgent_workspace    $ur     $ur     $cw
-        binding_mode        $cg     $cg     $cw
-    }
-}
 
 bindsym $mod+b bar mode toggle
 
@@ -461,11 +431,7 @@ default_floating_border normal
 ###### COLORS ######
 ####################
 
-# Set colors from Xresources
-# Change 'color7' and 'color2' to whatever colors you want i3 to use 
-# from the generated scheme.
-# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
-# it fails to get colors from Xresources.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if it fails to get colors from Xresources.
 #set_from_resource $c7 i3wm.color7 #f0f0f0
 #set_from_resource $c6 i3wm.color6 #f0f0f0
 #set_from_resource $c5 i3wm.color5 #f0f0f0
@@ -497,4 +463,27 @@ client.placeholder      $c2     $c2     $c3    $c2       $c2
 
 client.background       $c0
 
-# to edit status bar colors, see status bar section
+ bar {
+    status_command          i3blocks
+    bindsym button4         nop
+    bindsym button5         nop
+    position                top
+    tray_output             primary
+    separator_symbol        "·"
+    workspace_buttons       yes
+    strip_workspace_numbers yes
+    tray_padding 4
+    # padding 2px 0
+
+    colors {
+        background  $c0
+        statusline  $cw
+        separator   $c0
+        # class             border  backgr. text
+        focused_workspace   $c1     $c1     $cw
+        active_workspace    $c0     $c0     $cw
+        inactive_workspace  $c0     $c0     $cw
+        urgent_workspace    $ur     $ur     $cw
+        binding_mode        $cg     $cg     $cw
+    }
+}
