@@ -87,7 +87,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'jceb/vim-orgmode'
-
+Plug 'kblin/vim-fountain'
 call plug#end()
 " }}}
 

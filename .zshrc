@@ -4,10 +4,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-figlet -f small Hello, Alison! | lolcat
-bunnyfetch
-
-eval $(thefuck --alias)
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -87,6 +83,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+figlet -f small Hello, Alison! | lolcat
+bunnyfetch
+eval $(thefuck --alias)
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -107,7 +107,6 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
 alias l="lsd"
 alias la="lsd -A"
 alias ll="lsd -l"
@@ -131,7 +130,6 @@ alias i3b="nvim ~/.dotfiles/.config/i3blocks/config"
 alias drc="nvim ~/.dotfiles/.config/dunst/dunstrc"
 alias nfrc="nvim ~/.dotfiles/.config/neofetch/config.conf"
 alias vrc="nvim ~/.dotfiles/.vimrc"
-alias i3r="i3-msg restart"
 alias tn="tmux new -s"
 alias ta="tmux attach-session -t"
 alias ga="git add ."
@@ -140,13 +138,12 @@ alias gp="git push"
 alias gb="git checkout "
 alias gm="git merge "
 alias gst="git status"
-alias ophy="optimus-manager --switch hybrid --no-confirm"
-alias opin="optimus-manager --switch integrated --no-confirm"
-alias opnv="optimus-manager --switch nvidia --no-confirm"
 alias veado="Apps/Apps/veadotubemini/veadotube\ mini.x86_64 &disown"
 alias sammi="~/Downloads/SAMMI.2023.1.1.x64/SAMMI.2023.1.1.x64 && sudo wine SAMMI\ Core.exe &disown"
 alias ips="curl ipinfo.io/ip && curl ipinfo.io/city && curl ipinfo.io/region &&  curl ipinfo.io/country && curl ipinfo.io/loc"
-alias xclass="xprop | grep WM_CLASS"
 alias chad="cat ~/Applications/chad"
 alias amogus="cat ~/Applications/amogus"
 alias clock="tty-clock -c -s -b -C 7"
+
+#export paths
+export PATH=~/.config/emacs/bin:$PATH

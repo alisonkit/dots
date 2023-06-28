@@ -1,94 +1,35 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
-
-### Variables
 #
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-# Your preferred terminal emulator
-set $term kitty --single-instance
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-# set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu "rofi -modi drun,run -show drun"
-font pango:Fantasque Sans Mono Bold 14
-
-### Output configuration
+# Variables
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/Wallpapers/panda7.jpg fill
-set $lockwall "swaylock -l -i ~/Pictures/Wallpapers/panda2.png -s fill"
+    set $mod Mod4
+    set $left h
+    set $down j
+    set $up k
+    set $right l
+    set $term kitty --single-instance
+    set $menu fuzzel
+    font pango:Fantasque Sans Mono Bold 14
+#
+# Output configuration
+#
+    output * bg ~/Pictures/Wallpapers/panda7.jpg fill
+    set $lockwall "swaylock -l -i ~/Pictures/Wallpapers/panda2.png -s fill"
 #
 # Example configuration:
-#
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-### Key bindings
 #
 # Basics:
 #
-    # Start a terminal
     bindsym $mod+Return exec $term
-
-    # Kill focused window
     bindsym $mod+Shift+q kill
-
-    # Start your launcher
     bindsym $mod+Shift+Return exec $menu
-
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
     floating_modifier $mod normal
-
-
-    # Reload the configuration file
     bindsym $mod+Shift+c reload
-
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
     set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
-
     mode "$mode_system" {
       bindsym l exec --no-startup-id $lockwall, mode "default"
       bindsym e exec --no-startup-id swaymsg exit, mode "default"
@@ -96,34 +37,26 @@ set $lockwall "swaylock -l -i ~/Pictures/Wallpapers/panda2.png -s fill"
       bindsym h exec --no-startup-id $lockwall && systemctl hibernate, mode "default"
       bindsym r exec --no-startup-id systemctl reboot, mode "default"
       bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i, mode "default"
-
-    # back to normal: Enter or Escape
       bindsym Return mode "default"
       bindsym Escape mode "default"
 }
-
 bindsym $mod+BackSpace mode "$mode_system"
-
 #
 # Moving around:
 #
-    # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
@@ -141,7 +74,6 @@ bindsym $mod+BackSpace mode "$mode_system"
     set $ws8 "8   Stream"
     set $ws9 "9 Extra"
     set $ws0 "10 Extra"
-    # Switch to workspace
     bindsym $mod+1 workspace number $ws1
     bindsym $mod+2 workspace number $ws2
     bindsym $mod+3 workspace number $ws3
@@ -152,7 +84,6 @@ bindsym $mod+BackSpace mode "$mode_system"
     bindsym $mod+8 workspace number $ws8
     bindsym $mod+9 workspace number $ws9
     bindsym $mod+0 workspace number $ws10
-    # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number $ws1
     bindsym $mod+Shift+2 move container to workspace number $ws2
     bindsym $mod+Shift+3 move container to workspace number $ws3
@@ -163,8 +94,6 @@ bindsym $mod+BackSpace mode "$mode_system"
     bindsym $mod+Shift+8 move container to workspace number $ws8
     bindsym $mod+Shift+9 move container to workspace number $ws9
     bindsym $mod+Shift+0 move container to workspace number $ws10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
     workspace $ws1 output primary
     workspace $ws2 output nonprimary
     workspace $ws3 output primary
@@ -175,7 +104,169 @@ bindsym $mod+BackSpace mode "$mode_system"
     workspace $ws8 output primary
     workspace $ws9 output nonprimary
     workspace $ws0 output nonprimary
-    # move specific apps to specific workspaces
+    workspace_auto_back_and_forth yes
+    focus_on_window_activation focus
+    bindsym $mod+Tab move workspace to output next
+#
+# Layout stuff:
+#
+   # bindsym $mod+b splith
+   # bindsym $mod+v splitv
+    bindsym $mod+t split toggle
+
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    bindsym $mod+f fullscreen
+
+    bindsym $mod+Shift+space floating toggle
+
+    bindsym $mod+space focus mode_toggle
+
+    bindsym $mod+a focus parent
+
+    bindsym $mod+i border normal    0
+    bindsym $mod+y border pixel    4
+    bindsym $mod+u border none
+
+    default_orientation auto
+    hide_edge_borders smart
+#
+# Scratchpad:
+#
+    bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+    bindsym $mod+Ctrl+$left resize shrink width 10px
+    bindsym $mod+Ctrl+$down resize grow height 10px
+    bindsym $mod+Ctrl+$up resize shrink height 10px
+    bindsym $mod+Ctrl+$right resize grow width 10px
+
+    bindsym $mod+Ctrl+Left resize shrink width 10px
+    bindsym $mod+Ctrl+Down resize grow height 10px
+    bindsym $mod+Ctrl+Up resize shrink height 10px
+    bindsym $mod+Ctrl+Right resize grow width 10px
+
+#
+# Appereance
+#
+    smart_gaps on
+    gaps inner 8
+    gaps outer 2
+
+    default_border pixel 4
+    default_floating_border normal
+
+    set $cw #ffffff
+    set $ur #f44336
+    set $cg #229c56
+    set $c0 #14040d
+    set $c1 #704668
+    set $c2 #f38ba8
+    set $c3 #c982a9
+    set $c4 #f9e2af
+    set $c5 #9689f9
+    set $c6 #f5c2e7
+    set $c7 #94e2d5
+    # class                 border  backgr. text   indicator child_border
+    client.focused          $c6     $c6     $cw    $c6       $c6
+    client.focused_inactive $c5     $c5     $cw    $c5       $c5
+    client.unfocused        $c3     $c3     $cw    $c3       $c3
+    client.urgent           $ur     $ur     $ur    $ur       $ur
+    client.placeholder      $c2     $c2     $c3    $c2       $c2
+    client.background       $c0
+#
+# Status Bar:
+# Read `man 5 sway-bar` for more information about this section.
+    bar {
+        bar status_command i3blocks
+        position top
+        height 28
+        strip_workspace_numbers yes
+        #status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+        colors {
+            statusline #ffffff
+            background $c0
+            #class              bg  border  text
+            inactive_workspace  $c5 $c5     #ffffff
+            focused_workspace   $c2 $c2     #ffffff
+            }
+        }
+#
+# App Settings
+#
+    set $veado exec Apps/Apps/veadotubemini/veadotube\ mini.x86_64 &disown
+    set $cmus exec kitty --single-instance --name Music --class Music cmus
+    set $btm exec kitty --single-instance --name SysMo --class SYsMo btm
+    set $cava exec kitty --single-instance --name Cava --class Cava cava
+    set $ranger exec kitty --single-instance --name Ranger --class Ranger ranger
+# Application Launcher
+    set $mode_launcher Launch: krit[a] [e]macs [t]elegram [d]iscord [s]team [o]bs [b]lender [q]utebrowser c[m]us [l]utris qbi[T]orrent [g]odot ardo[u]r [O}penToonz [i]nkscape
+    bindsym $mod+o mode "$mode_launcher"
+    mode "$mode_launcher" {
+        bindsym a exec krita, mode "default"
+        bindsym e exec emacs, mode "default"
+        bindsym w exec "flatpak run io.gitlab.librewolf-community", mode "default"
+        bindsym t exec "flatpak run org.telegram.desktop", mode "default"
+        bindsym d exec "flatpak run com.discordapp.Discord", mode "default"
+        bindsym f exec firefox, mode "default"
+        bindsym q exec qbittorrent, mode "default"
+        bindsym g exec godot, mode "default"
+        bindsym l exec lutris, mode "default"
+        bindsym s exec steam, mode "default"
+        bindsym o exec "flatpak run com.obsproject.Studio", mode "default"
+        bindsym u exec ardour7, mode "default"
+        bindsym b exec blender, mode "default"
+        bindsym m exec $cmus; mode "default"
+        bindsym v exec $veado, mode "default"
+        bindsym i exec inkscape, mode "default"
+        bindsym Escape mode "default"
+        bindsym Return mode "default"
+        }
+# windows with floating mode by default
+    for_window [class="pentablet"] floating enable
+    for_window [class="OpenTabletDriver.UX.Gtk"] floating enable
+    for_window [class="Gnome-screenshot"] floating enable
+    for_window [class="spectacle"] floating enable
+    for_window [class="Arandr"] floating enable
+    for_window [class="Lxappearance"] floating enable
+    for_window [class="gnome-menu-editor-qt"] floating enable
+    for_window [class="Pavucontrol"] floating enable
+    for_window [class="ProtonUp-Qt"] floating enable
+    for_window [class="System-config-printer.py"] floating enable
+    for_window [class="GitHub.UI"] floating enable
+    for_window [class="Bitwarden"] floating enable
+    for_window [class="glaze-0.0.2.exe"] floating enable
+# fullscreen by default
+    for_window [class="mpv"] fullscreen enable
+    for_window [class="Vimiv"] fullscreen enable
+# border settings for different windows
+    for_window [class="krita"] border none
+    for_window [class="Emacs"] border none
+    for_window [class="Blender"] border none
+    for_window [class="qutebrowser"] border none
+    for_window [class="Inkscape"] border none
+    for_window [class="obs"] border none
+    for_window [class="Ardour"] border none
+    for_window [class="OpenToonz"] border none
+    for_window [class="Discord"] border none
+    for_window [class="cmusCoverViewer"] border none
+    for_window [class="Music"] border none
+    for_window [class="steamwebhelper"] border none
+# workspace layout for different apps
+    for_window [class="Music"] layout tabbed
+    for_window [class="obs"] layout tabbed
+    for_window [class="veadotube mini.x86_64"] layout tabbed
+    for_window [class="krita"] layout tabbed
+    for_window [class="Blender"] layout tabbed
+    for_window [class="Inkscape"] layout tabbed
+    for_window [class="Emacs"] layout tabbed
+    for_window [class="Godot"] layout tabbed
+    for_window [class="qutebrowser"] layout tabbed
+# move specific apps to specific workspaces
     assign [class="pentablet"] $ws1
     assign [class="OpenTabletDriver.UX.Gtk"] $ws1
     assign [class="Lxappearance"] $ws1
@@ -201,226 +292,31 @@ bindsym $mod+BackSpace mode "$mode_system"
     assign [class="dolphin-emu"] $ws7
     assign [class="obs"] $ws8
     assign [class="veadotube mini.x86_64"] $ws8
-    workspace_auto_back_and_forth yes
-    focus_on_window_activation focus
-    bindsym $mod+Tab move workspace to output next
-#
-# Layout stuff:
-#
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-   # bindsym $mod+b splith
-   # bindsym $mod+v splitv
-    bindsym $mod+t split toggle
-
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
-
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
-
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
-
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
-
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
-
-    #window borders
-    bindsym $mod+i border normal    0
-    bindsym $mod+y border pixel    4
-    bindsym $mod+u border none
-
-    default_orientation auto
-    hide_edge_borders smart
-#
-# Scratchpad:
-#
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
-#
-# Resizing containers:
-#
-    bindsym $mod+Ctrl+$left resize shrink width 10px
-    bindsym $mod+Ctrl+$down resize grow height 10px
-    bindsym $mod+Ctrl+$up resize shrink height 10px
-    bindsym $mod+Ctrl+$right resize grow width 10px
-
-    # Ditto, with arrow keys
-    bindsym $mod+Ctrl+Left resize shrink width 10px
-    bindsym $mod+Ctrl+Down resize grow height 10px
-    bindsym $mod+Ctrl+Up resize shrink height 10px
-    bindsym $mod+Ctrl+Right resize grow width 10px
-
-#
-# Appereance
-#
-
-    # i3-gaps
-    smart_gaps on
-    gaps inner 8
-    gaps outer 2
-
-    ## Window Border
-    default_border pixel 4
-    default_floating_border normal
-
-    # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if it fails to get colors from Xresources.
-    #set_from_resource $c7 i3wm.color7 #f0f0f0
-    #set_from_resource $c6 i3wm.color6 #f0f0f0
-    #set_from_resource $c5 i3wm.color5 #f0f0f0
-    #set_from_resource $c4 i3wm.color4 #f0f0f0
-    #set_from_resource $c3 i3wm.color3 #f0f0f0
-    #set_from_resource $c2 i3wm.color2 #f0f0f0
-    #set_from_resource $c1 i3wm.color1 #f0f0f0
-    #set_from_resource $c0 i3wm.color0 #f0f0f0
-    set $cw #ffffff
-    set $ur #f44336
-    set $cg #229c56
-
-    # colors to set if youd manually insert colors
-    set $c0 #14040d
-    set $c1 #704668
-    set $c2 #f38ba8
-    set $c3 #c982a9
-    set $c4 #f9e2af
-    set $c5 #9689f9
-    set $c6 #f5c2e7
-    set $c7 #94e2d5
-
-    # class                 border  backgr. text   indicator child_border
-    client.focused          $c6     $c6     $cw    $c6       $c6
-    client.focused_inactive $c5     $c5     $cw    $c5       $c5
-    client.unfocused        $c3     $c3     $cw    $c3       $c3
-    client.urgent           $ur     $ur     $ur    $ur       $ur
-    client.placeholder      $c2     $c2     $c3    $c2       $c2
-
-    client.background       $c0
-
-
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-    height 28
-    strip_workspace_numbers yes
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background $c0
-        inactive_workspace $c5 $c5 #ffffff
-        focused_workspace $c2 $c2 #ffffff
-    }
-}
-
-#
-# App Settings
-#
-    #Set paths for custom applications
-set $veado exec Apps/Apps/veadotubemini/veadotube\ mini.x86_64 &disown
-set $cmus exec kitty --single-instance --name Music --class Music cmus
-set $btm exec kitty --single-instance --name SysMo --class SYsMo btm
-set $cava exec kitty --single-instance --name Cava --class Cava cava
-set $ranger exec kitty --single-instance --name Ranger --class Ranger ranger
-
-# Application Launchers
-set $mode_launcher Launch: krit[a] [e]macs [t]elegram [d]iscord [s]team [o]bs [b]lender [q]utebrowser c[m]us [l]utris qbi[T]orrent [g]odot ardo[u]r [O}penToonz [i]nkscape
-bindsym $mod+o mode "$mode_launcher"
-
-mode "$mode_launcher" {
-    bindsym a exec krita, mode "default"
-    bindsym e exec emacs, mode "default"
-    bindsym w exec "flatpak run io.gitlab.librewolf-community", mode "default"
-    bindsym t exec "flatpak run org.telegram.desktop", mode "default"
-    bindsym d exec "flatpak run com.discordapp.Discord", mode "default"
-    bindsym f exec firefox, mode "default"
-    bindsym q exec qbittorrent, mode "default"
-    bindsym g exec godot, mode "default"
-    bindsym l exec lutris, mode "default"
-    bindsym s exec steam, mode "default"
-    bindsym o exec "flatpak run com.obsproject.Studio", mode "default"
-    bindsym u exec ardour7, mode "default"
-    bindsym b exec blender, mode "default"
-    bindsym m exec $cmus; mode "default"
-    bindsym v exec $veado, mode "default"
-    bindsym i exec inkscape, mode "default"
-
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-}
-
-# windows with floating mode by default
-for_window [class="pentablet"] floating enable
-for_window [class="OpenTabletDriver.UX.Gtk"] floating enable
-for_window [class="Gnome-screenshot"] floating enable
-for_window [class="spectacle"] floating enable
-for_window [class="Arandr"] floating enable
-for_window [class="Lxappearance"] floating enable
-for_window [class="gnome-menu-editor-qt"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="ProtonUp-Qt"] floating enable
-for_window [class="System-config-printer.py"] floating enable
-for_window [class="GitHub.UI"] floating enable
-for_window [class="Bitwarden"] floating enable
-for_window [class="glaze-0.0.2.exe"] floating enable
-#for_window [class="Yad"] floating enable
-
-for_window [class="mpv"] fullscreen enable
-for_window [class="Vimiv"] fullscreen enable
-
-# border settings for different windows
-for_window [class="krita"] border none
-for_window [class="Emacs"] border none
-for_window [class="Blender"] border none
-for_window [class="qutebrowser"] border none
-for_window [class="Inkscape"] border none
-for_window [class="obs"] border none
-for_window [class="Ardour"] border none
-for_window [class="OpenToonz"] border none
-for_window [class="Discord"] border none
-for_window [class="cmusCoverViewer"] border none
-for_window [class="Music"] border none
-for_window [class="steamwebhelper"] border none
-
-#workspace layout for different apps
-for_window [class="Music"] layout tabbed
-for_window [class="obs"] layout tabbed
-for_window [class="veadotube mini.x86_64"] layout tabbed
-for_window [class="krita"] layout tabbed
-for_window [class="Blender"] layout tabbed
-for_window [class="Inkscape"] layout tabbed
-for_window [class="Emacs"] layout tabbed
-for_window [class="Godot"] layout tabbed
-for_window [class="qutebrowser"] layout tabbed
 
 #
 # Autostart
 #
+    exec_always --no-startup-id dunst
+    exec_always --no-startup-id nm-applet
+    exec_always --no-startup-id autotiling
+#
+#
+#
+### Idle configuration
+#    exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'
 
-exec_always --no-startup-id dunst
-exec_always --no-startup-id nm-applet
-exec_always --no-startup-id autotiling
-
+### Input configuration
+   input "1739:52759:SYNA32A5:00_06CB:CE17_Touchpad" {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
+       middle_emulation enabled
+   }
 #
-#
-#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
 
 include /etc/sway/config.d/*
