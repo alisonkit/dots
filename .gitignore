@@ -2,4 +2,19 @@
 
 # Ignores melpa archives in emacs
 .emacs.d/.local/
+
+# Ignores theme folders
 .themes/Juno-ocean-v40/
+.themes/Ant-shell-v40/
+.themes/Bloody-shell-v40/
+.themes/Nebula-Shell-v40/
+.themes/Sweet-Ambar-v40/
+.themes/Sweet-Dark-v40/
+.themes/Sweet-mars-v40/
+.themes/Tokyonight-Dark-BL-GS/
+.themes/PinkWah/
+
+# Ignores icon folders
+.icons/icons-candy/
+.icons/Papirus-PinkWah/
+.icons/default/
