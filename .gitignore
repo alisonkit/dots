@@ -18,3 +18,10 @@
 .icons/icons-candy/
 .icons/Papirus-PinkWah/
 .icons/default/
+
+#Ignores cmus personal info
+.config/cmus/playlists/
+.config/cmus/cache
+.config/cmus/command-history
+.config/cmus/lib.pl
+.config/cmus/search-history
