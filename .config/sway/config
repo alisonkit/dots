@@ -182,7 +182,7 @@ bindsym $mod+BackSpace mode "$mode_system"
 # Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
     bar {
-        bar status_command i3blocks
+        bar status_command waybar
         position top
         height 28
         strip_workspace_numbers yes

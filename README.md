@@ -12,8 +12,12 @@ This is a desktop setup I made to automate, simplify and improve my workflow for
 - **Super+d** is for opening fuzzel (App Menu)
 - **Super+s** is for Multi-Monitor display options (right now I only have them for my specific workflow oops)
 
-i3blocks is set so that it includes time, date, volume, brightness, a stopwatch, color picker and the song currently playing in cmus.
-NeoVim already has Vim-Plug and a few plugins included.
+- i3blocks is set so that it includes time, date, volume, brightness, a stopwatch, color picker and the song currently playing in cmus.
+- NeoVim already has Vim-Plug and a few plugins included.
+- kitty runs in a transparent borderless window
+- zsh has a greeting message, a few tools like autocompletion, and a few aliases
+- CMUS has some keybinding changes, like pressing space to pause/resume music, instead of 'c', and some minor statusbas changes
+- bottom has some minor changes, nothing too different from the defaults
 
 ## Dependencies
 
@@ -29,7 +33,6 @@ NeoVim already has Vim-Plug and a few plugins included.
 - **neofetch** (System info)
 - **w3m** (Backend for image generation in terminal utilities like ranger and neofetch)
 - **neovim** (Editor, I use it for config files and quick edits)
-- **Doom Emacs** (Editor, for editing org-mode notes, story-writing, programming, etc.)
 - **bottom** (System monitor)
 - **cmus** (Music Player)
 - **cava** (Music Visualizer)
@@ -60,3 +63,9 @@ X is slowly becoming deprecated, and most major distributions are making the swi
 
 ## Why Sway?
 - I chose sway as my window manager because its the one I found most optimal for managing different workspaces across multiple screens. This layout is focused on the use of vi keys and touchscreen controls, given that I use a pen tablet display to work most of the time (I don't know how to explain but it's just very convenient for me. I have my sway/config file set up with a few workspace layouts reserved for different kinds of uses, for example: in "Art" you'll have a workspace dedicated for applications such as Krita or Blender. I also have a few modes set up for sway to speed up some processes that would involve the use of the terminal, such as opening various apps at once, system power, monitor setups, etc.
+
+## Why do the colors in cmus look weird?
+Running cmus on any terminal emulator that isn't kitty with the colors I set in my configuration file will make the colors look weird.
+
+## Why red pandas?
+Why not? :3c

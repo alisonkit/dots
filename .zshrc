@@ -4,7 +4,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -84,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 figlet -f small Hello, Alison! | lolcat
-bunnyfetch
+./Apps/Binaries/Bunnyfetch/bunnyfetch
 eval $(thefuck --alias)
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -116,22 +115,21 @@ alias lsda="lsd -lA"
 alias nv="nvim"
 alias nf="neofetch"
 alias ra="ranger"
-alias dots="cd .dotfiles"
+alias conf="cd ~/.config"
+alias dots="cd ~/.dotfiles"
 alias ssd="sudo mount /dev/sda1 /media/ssd2t/"
 alias ussd="sudo umount /media/ssd2t"
 alias usb="sudo mount /dev/sda1 /media/usb/"
 alias uusb="sudo umount /media/usb/"
 alias zrc="nvim ~/.zshrc"
-alias conf="cd ~/.config"
-alias i3c="nvim ~/.dotfiles/.config/i3/config"
-alias swc="nvim ~/.dotfiles/.config/sway/config"
+alias scf="nvim ~/.dotfiles/.config/sway/config"
 alias kic="nvim ~/.dotfiles/.config/kitty/kitty.conf"
 alias i3b="nvim ~/.dotfiles/.config/i3blocks/config"
 alias drc="nvim ~/.dotfiles/.config/dunst/dunstrc"
 alias nfrc="nvim ~/.dotfiles/.config/neofetch/config.conf"
 alias vrc="nvim ~/.dotfiles/.vimrc"
-alias tn="tmux new -s"
-alias ta="tmux attach-session -t"
+alias tn="tmux new -s "
+alias ta="tmux attach-session -t "
 alias ga="git add ."
 alias gc="git commit -m "
 alias gp="git push"
@@ -139,11 +137,14 @@ alias gb="git checkout "
 alias gm="git merge "
 alias gst="git status"
 alias veado="Apps/Apps/veadotubemini/veadotube\ mini.x86_64 &disown"
-alias sammi="~/Downloads/SAMMI.2023.1.1.x64/SAMMI.2023.1.1.x64 && sudo wine SAMMI\ Core.exe &disown"
+alias sammi="wine start Apps/sammi/2.2/SAMMI\ Core.exe"
 alias ips="curl ipinfo.io/ip && curl ipinfo.io/city && curl ipinfo.io/region &&  curl ipinfo.io/country && curl ipinfo.io/loc"
-alias chad="cat ~/Applications/chad"
-alias amogus="cat ~/Applications/amogus"
+alias chad="cat ~/Apps/chad"
+alias amogus="cat ~/Apps/amogus"
 alias clock="tty-clock -c -s -b -C 7"
+alias nala="sudo nala"
+alias swaynv="sway --unsupported-gpu"
 
 #export paths
 export PATH=~/.config/emacs/bin:$PATH
+export PATH=~/.emacs.d/bin:$PATH
