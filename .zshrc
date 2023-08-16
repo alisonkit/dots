@@ -41,7 +41,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -83,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 figlet -f small Hello, Alison! | lolcat
-./Apps/Binaries/Bunnyfetch/bunnyfetch
+bunnyfetch
 eval $(thefuck --alias)
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -92,12 +92,14 @@ eval $(thefuck --alias)
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR=nvim
+ else
+   export EDITOR=nvim
+ fi
 
+export VISUAL=nvim
+ 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -106,6 +108,7 @@ eval $(thefuck --alias)
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 alias l="lsd"
 alias la="lsd -A"
 alias ll="lsd -l"
@@ -136,13 +139,12 @@ alias gp="git push"
 alias gb="git checkout "
 alias gm="git merge "
 alias gst="git status"
-alias veado="Apps/Apps/veadotubemini/veadotube\ mini.x86_64 &disown"
+alias veado="Apps/veadotubemini/veadotube\ mini.x86_64 &disown"
 alias sammi="wine start Apps/sammi/2.2/SAMMI\ Core.exe"
-alias ips="curl ipinfo.io/ip && curl ipinfo.io/city && curl ipinfo.io/region &&  curl ipinfo.io/country && curl ipinfo.io/loc"
-alias chad="cat ~/Apps/chad"
-alias amogus="cat ~/Apps/amogus"
+alias vpnstat="curl ipinfo.io/ip && curl ipinfo.io/city && curl ipinfo.io/region &&  curl ipinfo.io/country && curl ipinfo.io/loc"
+alias chad="cat ~/.dotfiles/chad"
+alias whoami="echo My name is | figlet && whoami | figlet | lolcat && echo yo | figlet && cat ~/.dotfiles/skylerwhiteyo | lolcat"
 alias clock="tty-clock -c -s -b -C 7"
-alias nala="sudo nala"
 alias swaynv="sway --unsupported-gpu"
 
 #export paths
