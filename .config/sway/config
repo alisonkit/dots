@@ -13,8 +13,8 @@
 #
 # Output configuration
 #
-    output * bg ~/Pictures/Wallpapers/panda7.jpg fill
-    set $lockwall "swaylock -l -i ~/Pictures/Wallpapers/panda2.png -s fill"
+    output * bg ~/.dotfiles/pics/panda7.jpg fill
+    set $lockwall "swaylock -l -i ~/.dotfiles/pics/panda2.png -s fill"
 #
 # Example configuration:
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0

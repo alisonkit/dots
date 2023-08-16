@@ -142,11 +142,12 @@ alias gst="git status"
 alias veado="Apps/veadotubemini/veadotube\ mini.x86_64 &disown"
 alias sammi="wine start Apps/sammi/2.2/SAMMI\ Core.exe"
 alias vpnstat="curl ipinfo.io/ip && curl ipinfo.io/city && curl ipinfo.io/region &&  curl ipinfo.io/country && curl ipinfo.io/loc"
-alias chad="cat ~/.dotfiles/chad"
-alias whoami="echo My name is | figlet && whoami | figlet | lolcat && echo yo | figlet && cat ~/.dotfiles/skylerwhiteyo | lolcat"
+alias chad="cat ~/.dotfiles/ascii/chad"
+alias whoami="echo My name is | figlet && whoami | figlet | lolcat && echo yo | figlet && cat ~/.dotfiles/ascii/skylerwhiteyo | lolcat"
 alias clock="tty-clock -c -s -b -C 7"
 alias swaynv="sway --unsupported-gpu"
 
 #export paths
 export PATH=~/.config/emacs/bin:$PATH
 export PATH=~/.emacs.d/bin:$PATH
+export PATH=~/.local/bin:$PATH
