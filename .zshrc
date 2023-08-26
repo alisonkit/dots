@@ -79,6 +79,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source ~/.zplug/init.zsh
 
 # User configuration
 
@@ -99,6 +100,7 @@ eval $(thefuck --alias)
  fi
 
 export VISUAL=nvim
+export TERM="xterm-256color"
  
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -143,7 +145,7 @@ alias veado="Apps/veadotubemini/veadotube\ mini.x86_64 &disown"
 alias sammi="wine start Apps/sammi/2.2/SAMMI\ Core.exe"
 alias vpnstat="curl ipinfo.io/ip && curl ipinfo.io/city && curl ipinfo.io/region &&  curl ipinfo.io/country && curl ipinfo.io/loc"
 alias chad="cat ~/.dotfiles/ascii/chad"
-alias whoami="echo My name is | figlet && whoami | figlet | lolcat && echo yo | figlet && cat ~/.dotfiles/ascii/skylerwhiteyo | lolcat"
+alias whoamiyo="echo My name is | figlet && whoami | figlet | lolcat && echo yo | figlet && cat ~/.dotfiles/ascii/skylerwhiteyo | lolcat"
 alias clock="tty-clock -c -s -b -C 7"
 alias swaynv="sway --unsupported-gpu"
 
