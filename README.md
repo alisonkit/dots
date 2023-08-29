@@ -21,40 +21,40 @@ This is a desktop setup I made to automate, simplify and improve my workflow for
 
 ## Dependencies
 
-- **sway** (Window Manager)
-- **wayland** (Display manager)
-- **git** for cloning this repo
-- **i3blocks** (Utilities for i3wm)
-- **kitty** (Terminal)
-- **zsh** (Shell)
-- **oh-my-zsh** (Plugins for zsh)
-- **fuzzel** (Application Launcher)
-- **dunst** (Notifications)
-- **neofetch** (System info)
-- **w3m** (Backend for image generation in terminal utilities like ranger and neofetch)
-- **neovim** (Editor, I use it for config files and quick edits)
-- **bottom** (System monitor)
-- **cmus** (Music Player)
-- **cava** (Music Visualizer)
-- **ranger** (File manager)
-- **Fantasque Sans Mono** (Fonts and Icons needed for this to work.)
-- **Font Awesome** (Fonts and Icons needed for this to work.)
-- **figlet** Used in my default terminal greeting
-- **lolcat** Used in my default terminal greeting
-- **bunnyfetch**  Used in my default terminal greeting
-- **Bibata Modern Ice** cursor theme
-- **nmapplet** (For easy network configuration from the status bar)
+- [sway](https://github.com/swaywm/sway)  Window Manager
+- [wayland](https://wayland.freedesktop.org/)  Display manager
+- [git](https://git-scm.com/downloads)  for cloning this repo
+- [i3blocks](https://github.com/vivien/i3blocks)  Utilities for i3wm
+- [kitty](https://sw.kovidgoyal.net/kitty/)  Terminal
+- [zsh](https://www.zsh.org/)  Shell
+- [oh-my-zsh](https://ohmyz.sh/)  Plugins for zsh
+- [fuzzel](https://codeberg.org/dnkl/fuzzel)  Application Launcher
+- [dunst](https://github.com/dunst-project/dunst)  Notifications
+- [neofetch](https://github.com/dylanaraps/neofetch)  System info
+- [python3-pillow](https://pypi.org/project/Pillow/)  Backend for image generation in terminal utilities like ranger and neofetch
+- [neovim](https://github.com/neovim/neovim) Editor, I use it for config files and quick edits
+- [bottom](https://github.com/ClementTsang/bottom)  System monitor
+- [cmus](https://cmus.github.io/)  Music Player
+- [ranger](https://github.com/ranger/ranger)  File manager
+- [Fantasque Sans Mono](https://github.com/belluzj/fantasque-sans)  Fonts and Icons needed for this to work.
+- [Font Awesome](https://github.com/FortAwesome/Font-Awesome)  Fonts and Icons needed for this to work.
+- [figlet](http://www.figlet.org/)  Used in my default terminal greeting
+- [lolcat](https://github.com/jaseg/lolcat)  Used in my default terminal greeting (Variant written in C)
+- [bunnyfetch](https://github.com/Rosettea/bunnyfetch)  Used in my default terminal greeting
+- [nmapplet](https://gitlab.gnome.org/GNOME/network-manager-applet)  For easy network configuration from the status bar
 
 ## Optional but recommended packages
 
-- **autotiling** (I have no idea why this isn't included by default in i3/sway)
-- **pywal** (For scraping colors off wallpaper) **Optional**
+- [autotiling](https://github.com/nwg-piotr/autotiling)  I have no idea why this isn't included by default in i3/sway
+- [pywal](https://github.com/dylanaraps/pywal) For scraping colors off wallpaper
+- [Bibata Modern Ice ](https://github.com/ful1e5/Bibata_Cursor) cursor theme
+- [gnu stow](https://www.gnu.org/software/stow/) For easy dotfile management
 
 ## Installation
 1. Make sure all dependencies are installed
-2. Git clone this repository
-3. Use a tool like GNU Stow to sys-link all dotfiles, or move the ones you'd like to install individually.
-4. Change settings like the greeting message in .zshrc ("Hello Alison" in line 86), or the wallpaper in line 16 of ~/.config/sway/config, the text in ~/.config/neofetch/config.conf (like lines 4 to 34, the custom image in line 707)
+2. Git clone this repository in your home folder. The files will exist here insted of ~/.config for easier management.
+3. Use a tool like GNU Stow to system-link all the configuration files, or move the ones you'd like to install individually to their respective locations.
+4. Change settings like the greeting message in .zshrc, the wallpaper ~/.config/sway/config, or the text in ~/.config/neofetch/config.conf.
 
 # F.A.Q
 

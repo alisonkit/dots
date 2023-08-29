@@ -100,7 +100,6 @@ eval $(thefuck --alias)
  fi
 
 export VISUAL=nvim
-export TERM="xterm-256color"
  
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
