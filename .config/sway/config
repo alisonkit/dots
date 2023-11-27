@@ -1,76 +1,59 @@
-# Read `man 5 sway` for a complete reference.
-#
 # Variables
-#
     set $mod Mod4
     set $left h
     set $down j
     set $up k
     set $right l
-    set $term kitty --single-instance
+    # set $term kitty --single-instance
+    set $term foot
     set $menu fuzzel
     font pango:Fantasque Sans Mono Bold 14
-#
+
 # Output configuration
-#
     output * bg ~/.dotfiles/pics/panda7.jpg fill
     set $lockwall "swaylock -l -i ~/.dotfiles/pics/panda2.png -s fill"
-#
-# Example configuration:
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-#
+    #Example configuration:
+    #output HDMI-A-1 resolution 1920x1080 position 1920,0
+    #You can get the names of your outputs by running: swaymsg -t get_outputs
+
 # Basics:
-#
     bindsym $mod+Return exec $term
     bindsym $mod+Shift+q kill
     bindsym $mod+Shift+Return exec $menu
     floating_modifier $mod normal
     bindsym $mod+Shift+c reload
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit sway?' -B 'Yes, exit sway' 'swaymsg exit'
     set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
     mode "$mode_system" {
-      bindsym l exec --no-startup-id $lockwall, mode "default"
-      bindsym e exec --no-startup-id swaymsg exit, mode "default"
-      bindsym s exec --no-startup-id $lockwall && systemctl suspend, mode "default"
-      bindsym h exec --no-startup-id $lockwall && systemctl hibernate, mode "default"
-      bindsym r exec --no-startup-id systemctl reboot, mode "default"
-      bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i, mode "default"
-      bindsym Return mode "default"
-      bindsym Escape mode "default"
-}
-bindsym $mod+BackSpace mode "$mode_system"
-#
+        bindsym l exec --no-startup-id $lockwall, mode "default"
+        bindsym e exec --no-startup-id swaymsg exit, mode "default"
+        bindsym s exec --no-startup-id $lockwall && systemctl suspend, mode "default"
+        bindsym h exec --no-startup-id $lockwall && systemctl hibernate, mode "default"
+        bindsym r exec --no-startup-id systemctl reboot, mode "default"
+        bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i, mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        }
+    bindsym $mod+BackSpace mode "$mode_system"
+
 # Moving around:
-#
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
-
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
-#
+
 # Workspaces:
-#
     set $ws1 "1   Term"
     set $ws2 "2   Art"
     set $ws3 "3   Code"
     set $ws4 "4   Web"
     set $ws5 "5   Chat"
-    set $ws6 "6   Media"
-    set $ws7 "7   Gaymes"
+    set $ws6 "6   Mednyan"
+    set $ws7 "7   Gayming"
     set $ws8 "8   Stream"
     set $ws9 "9 Extra"
     set $ws0 "10 Extra"
@@ -107,59 +90,40 @@ bindsym $mod+BackSpace mode "$mode_system"
     workspace_auto_back_and_forth yes
     focus_on_window_activation focus
     bindsym $mod+Tab move workspace to output next
-#
+
 # Layout stuff:
-#
    # bindsym $mod+b splith
    # bindsym $mod+v splitv
     bindsym $mod+t split toggle
-
     bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
-
     bindsym $mod+f fullscreen
-
     bindsym $mod+Shift+space floating toggle
-
     bindsym $mod+space focus mode_toggle
-
     bindsym $mod+a focus parent
-
     bindsym $mod+i border normal    0
     bindsym $mod+y border pixel    4
     bindsym $mod+u border none
-
     default_orientation auto
     hide_edge_borders smart
-#
+
 # Scratchpad:
-#
     bindsym $mod+Shift+minus move scratchpad
     bindsym $mod+minus scratchpad show
-#
+
 # Resizing containers:
-#
     bindsym $mod+Ctrl+$left resize shrink width 10px
     bindsym $mod+Ctrl+$down resize grow height 10px
     bindsym $mod+Ctrl+$up resize shrink height 10px
     bindsym $mod+Ctrl+$right resize grow width 10px
 
-    bindsym $mod+Ctrl+Left resize shrink width 10px
-    bindsym $mod+Ctrl+Down resize grow height 10px
-    bindsym $mod+Ctrl+Up resize shrink height 10px
-    bindsym $mod+Ctrl+Right resize grow width 10px
-
-#
 # Appereance
-#
     smart_gaps on
     gaps inner 8
     gaps outer 2
-
     default_border pixel 4
     default_floating_border normal
-
     set $cw #ffffff
     set $ur #f44336
     set $cg #229c56
@@ -178,15 +142,15 @@ bindsym $mod+BackSpace mode "$mode_system"
     client.urgent           $ur     $ur     $ur    $ur       $ur
     client.placeholder      $c2     $c2     $c3    $c2       $c2
     client.background       $c0
-#
+
 # Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
     bar {
-        bar status_command waybar
+        status_command swaybar
         position top
         height 28
         strip_workspace_numbers yes
-        #status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+        status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
         colors {
             statusline #ffffff
             background $c0
@@ -195,16 +159,16 @@ bindsym $mod+BackSpace mode "$mode_system"
             focused_workspace   $c2 $c2     #ffffff
             }
         }
-#
+
 # App Settings
-#
-    set $veado exec Apps/Apps/veadotubemini/veadotube\ mini.x86_64 &disown
+    #set $veado exec Apps/Apps/veadotubemini/veadotube\ mini.x86_64 &disown
+    set $music exec kitty --single-instance --name Music --class Music ncmpcpp
     set $cmus exec kitty --single-instance --name Music --class Music cmus
     set $btm exec kitty --single-instance --name SysMo --class SYsMo btm
     set $cava exec kitty --single-instance --name Cava --class Cava cava
     set $ranger exec kitty --single-instance --name Ranger --class Ranger ranger
 # Application Launcher
-    set $mode_launcher Launch: krit[a] [e]macs [t]elegram [d]iscord [s]team [o]bs [b]lender [q]utebrowser c[m]us [l]utris qbi[T]orrent [g]odot ardo[u]r [O}penToonz [i]nkscape
+    set $mode_launcher Launch: krit[a] [e]macs [t]elegram [d]iscord [s]team [o]bs [b]lender [q]utebrowser [m]pd [l]utris qbi[T]orrent [g]odot ardo[u]r [O}penToonz [i]nkscape
     bindsym $mod+o mode "$mode_launcher"
     mode "$mode_launcher" {
         bindsym a exec krita, mode "default"
@@ -212,17 +176,17 @@ bindsym $mod+BackSpace mode "$mode_system"
         bindsym w exec "flatpak run io.gitlab.librewolf-community", mode "default"
         bindsym t exec "flatpak run org.telegram.desktop", mode "default"
         bindsym d exec "flatpak run com.discordapp.Discord", mode "default"
-        bindsym f exec firefox, mode "default"
-        bindsym q exec qbittorrent, mode "default"
-        bindsym g exec godot, mode "default"
-        bindsym l exec lutris, mode "default"
-        bindsym s exec steam, mode "default"
+        bindsym f exec "flatpak run org.mozilla.firefox", mode "default"
+        bindsym q exec "flatpak run org.qbittorrent.qBittorrent", mode "default"
+        bindsym g exec "flatpak run org.godotengine.Godot, mode "default"
+        bindsym l exec "flatpak run net.lutris.Lutris", mode "default"
+        bindsym s exec "flatpak run com.valvesoftware.Steam", mode "default"
         bindsym o exec "flatpak run com.obsproject.Studio", mode "default"
-        bindsym u exec ardour7, mode "default"
-        bindsym b exec blender, mode "default"
-        bindsym m exec $cmus; mode "default"
-        bindsym v exec $veado, mode "default"
-        bindsym i exec inkscape, mode "default"
+        bindsym u exec "flatpak run org.ardour.Ardour", mode "default"
+        bindsym b exec "flatpak run org.blender.Blender", mode "default"
+        bindsym m exec $music; mode "default"
+        #bindsym v exec $veado, mode "default"
+        bindsym i exec "flatpak run org.inkscape.Inkscape", mode "default"
         bindsym Escape mode "default"
         bindsym Return mode "default"
         }
@@ -239,10 +203,9 @@ bindsym $mod+BackSpace mode "$mode_system"
     for_window [class="System-config-printer.py"] floating enable
     for_window [class="GitHub.UI"] floating enable
     for_window [class="Bitwarden"] floating enable
-    for_window [class="glaze-0.0.2.exe"] floating enable
 # fullscreen by default
     for_window [class="mpv"] fullscreen enable
-    for_window [class="Vimiv"] fullscreen enable
+    for_window [class="Vimiv-qt"] fullscreen enable
 # border settings for different windows
     for_window [class="krita"] border none
     for_window [class="Emacs"] border none
@@ -293,30 +256,25 @@ bindsym $mod+BackSpace mode "$mode_system"
     assign [class="obs"] $ws8
     assign [class="veadotube mini.x86_64"] $ws8
 
-#
 # Autostart
-#
     exec_always --no-startup-id dunst
     exec_always --no-startup-id nm-applet
     exec_always --no-startup-id autotiling
-#
-#
-#
-### Idle configuration
-#    exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
 
-### Input configuration
+# Idle configuration
+    #exec swayidle -w \
+    #timeout 300 'swaylock -f -c 000000' \
+    #timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    #before-sleep 'swaylock -f -c 000000'
+
+# Input configuration
    input "1739:52759:SYNA32A5:00_06CB:CE17_Touchpad" {
        dwt enabled
        tap enabled
        natural_scroll enabled
        middle_emulation enabled
-   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+       }
+    # You can get the names of your inputs by running: swaymsg -t get_inputs
+    # Read `man 5 sway-input` for more information about this section.
 
-include /etc/sway/config.d/*
+# include /etc/sway/config.d/*
