@@ -4,16 +4,26 @@
     set $down j
     set $up k
     set $right l
-    # set $term kitty --single-instance
-    set $term foot
+    set $term kitty --single-instance
+    # set $term foot
     set $menu fuzzel
     font pango:Fantasque Sans Mono Bold 14
 
 # Output configuration
-    output * bg ~/.dotfiles/pics/panda7.jpg fill
-    set $lockwall "swaylock -l -i ~/.dotfiles/pics/panda2.png -s fill"
-    #Example configuration:
-    #output HDMI-A-1 resolution 1920x1080 position 1920,0
+    set $screen1 eDP-1
+    set $screen2 DP-2
+    set $res1 res 1440x2560
+    set $res2 res 1080x1920
+    set $pos1 pos 0,0
+    set $pos2 pos 0,1440
+    set $scale1 scale 1.25
+    set $scale2 scale 1
+    set $bg1 bg ~/.dotfiles/pics/panda7.jpg fill
+    set $bg2 bg ~/.dotfiles/pics/panda7.jpg fill
+    output $screen1 $res1 $pos1 $scale1 $bg1
+    output $screen2 $res2 $pos2 $scale2 $bg2
+    focus output $screen1
+    set $lockwall "swaylock -e -F -l -i ~/.dotfiles/pics/panda2.png -s fill"
     #You can get the names of your outputs by running: swaymsg -t get_outputs
 
 # Basics:
@@ -47,16 +57,16 @@
     bindsym $mod+Shift+$right move right
 
 # Workspaces:
-    set $ws1 "1   Term"
-    set $ws2 "2   Art"
-    set $ws3 "3   Code"
-    set $ws4 "4   Web"
-    set $ws5 "5   Chat"
-    set $ws6 "6   Mednyan"
-    set $ws7 "7   Gayming"
-    set $ws8 "8   Stream"
-    set $ws9 "9 Extra"
-    set $ws0 "10 Extra"
+    set $ws1 1:  Term
+    set $ws2 2:  Art
+    set $ws3 3:  Code
+    set $ws4 4:  Web
+    set $ws5 5:  Chat
+    set $ws6 6:  Media
+    set $ws7 7:  Gayming
+    set $ws8 8:  Stream
+    set $ws9 9:ExtraOne
+    set $ws0 10:Extratwo
     bindsym $mod+1 workspace number $ws1
     bindsym $mod+2 workspace number $ws2
     bindsym $mod+3 workspace number $ws3
@@ -77,16 +87,16 @@
     bindsym $mod+Shift+8 move container to workspace number $ws8
     bindsym $mod+Shift+9 move container to workspace number $ws9
     bindsym $mod+Shift+0 move container to workspace number $ws10
-    workspace $ws1 output primary
-    workspace $ws2 output nonprimary
-    workspace $ws3 output primary
-    workspace $ws4 output primary
-    workspace $ws5 output primary
-    workspace $ws6 output primary
-    workspace $ws7 output primary
-    workspace $ws8 output primary
-    workspace $ws9 output nonprimary
-    workspace $ws0 output nonprimary
+    workspace $ws1 output $screen1
+    workspace $ws2 output $screen2
+    workspace $ws3 output $screen1
+    workspace $ws4 output $screen1
+    workspace $ws5 output $screen1
+    workspace $ws6 output $screen1
+    workspace $ws7 output $screen1
+    workspace $ws8 output $screen1
+    workspace $ws9 output $screen1
+    workspace $ws0 output $screen1
     workspace_auto_back_and_forth yes
     focus_on_window_activation focus
     bindsym $mod+Tab move workspace to output next
@@ -144,13 +154,11 @@
     client.background       $c0
 
 # Status Bar:
-# Read `man 5 sway-bar` for more information about this section.
     bar {
-        status_command swaybar
+        status_command ~/.dotfiles/.config/sway/bar.sh
         position top
         height 28
         strip_workspace_numbers yes
-        status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
         colors {
             statusline #ffffff
             background $c0
@@ -161,11 +169,8 @@
         }
 
 # App Settings
-    #set $veado exec Apps/Apps/veadotubemini/veadotube\ mini.x86_64 &disown
     set $music exec kitty --single-instance --name Music --class Music ncmpcpp
-    set $cmus exec kitty --single-instance --name Music --class Music cmus
     set $btm exec kitty --single-instance --name SysMo --class SYsMo btm
-    set $cava exec kitty --single-instance --name Cava --class Cava cava
     set $ranger exec kitty --single-instance --name Ranger --class Ranger ranger
 # Application Launcher
     set $mode_launcher Launch: krit[a] [e]macs [t]elegram [d]iscord [s]team [o]bs [b]lender [q]utebrowser [m]pd [l]utris qbi[T]orrent [g]odot ardo[u]r [O}penToonz [i]nkscape
@@ -173,7 +178,6 @@
     mode "$mode_launcher" {
         bindsym a exec krita, mode "default"
         bindsym e exec emacs, mode "default"
-        bindsym w exec "flatpak run io.gitlab.librewolf-community", mode "default"
         bindsym t exec "flatpak run org.telegram.desktop", mode "default"
         bindsym d exec "flatpak run com.discordapp.Discord", mode "default"
         bindsym f exec "flatpak run org.mozilla.firefox", mode "default"
@@ -191,70 +195,70 @@
         bindsym Return mode "default"
         }
 # windows with floating mode by default
-    for_window [class="pentablet"] floating enable
-    for_window [class="OpenTabletDriver.UX.Gtk"] floating enable
-    for_window [class="Gnome-screenshot"] floating enable
-    for_window [class="spectacle"] floating enable
-    for_window [class="Arandr"] floating enable
-    for_window [class="Lxappearance"] floating enable
-    for_window [class="gnome-menu-editor-qt"] floating enable
-    for_window [class="Pavucontrol"] floating enable
-    for_window [class="ProtonUp-Qt"] floating enable
-    for_window [class="System-config-printer.py"] floating enable
-    for_window [class="GitHub.UI"] floating enable
-    for_window [class="Bitwarden"] floating enable
+    for_window [app_id="pentablet"] floating enable
+    for_window [app_id="OpenTabletDriver.UX.Gtk"] floating enable
+    for_window [app_id="Gnome-screenshot"] floating enable
+    for_window [app_id="spectacle"] floating enable
+    for_window [app_id="Arandr"] floating enable
+    for_window [app_id="Lxappearance"] floating enable
+    for_window [app_id="gnome-menu-editor-qt"] floating enable
+    for_window [app_id="Pavucontrol"] floating enable
+    for_window [app_id="ProtonUp-Qt"] floating enable
+    for_window [app_id="System-config-printer.py"] floating enable
+    for_window [app_id="GitHub.UI"] floating enable
+    for_window [app_id="Bitwarden"] floating enable
 # fullscreen by default
-    for_window [class="mpv"] fullscreen enable
-    for_window [class="Vimiv-qt"] fullscreen enable
+    for_window [app_id="mpv"] fullscreen enable
+    for_window [app_id="Vimiv-qt"] fullscreen enable
 # border settings for different windows
-    for_window [class="krita"] border none
-    for_window [class="Emacs"] border none
-    for_window [class="Blender"] border none
-    for_window [class="qutebrowser"] border none
-    for_window [class="Inkscape"] border none
-    for_window [class="obs"] border none
-    for_window [class="Ardour"] border none
-    for_window [class="OpenToonz"] border none
-    for_window [class="Discord"] border none
-    for_window [class="cmusCoverViewer"] border none
-    for_window [class="Music"] border none
-    for_window [class="steamwebhelper"] border none
+    for_window [app_id="krita"] border none
+    for_window [app_id="Emacs"] border none
+    for_window [app_id="Blender"] border none
+    for_window [app_id="qutebrowser"] border none
+    for_window [app_id="Inkscape"] border none
+    for_window [app_id="obs"] border none
+    for_window [app_id="Ardour"] border none
+    for_window [app_id="OpenToonz"] border none
+    for_window [app_id="Discord"] border none
+    for_window [app_id="Music"] border none
+    for_window [app_id="steamwebhelper"] border none
 # workspace layout for different apps
-    for_window [class="Music"] layout tabbed
-    for_window [class="obs"] layout tabbed
-    for_window [class="veadotube mini.x86_64"] layout tabbed
-    for_window [class="krita"] layout tabbed
-    for_window [class="Blender"] layout tabbed
-    for_window [class="Inkscape"] layout tabbed
-    for_window [class="Emacs"] layout tabbed
-    for_window [class="Godot"] layout tabbed
-    for_window [class="qutebrowser"] layout tabbed
+    for_window [app_id="obs"] layout tabbed
+    for_window [app_id="veadotube_mini"] layout tabbed
+    for_window [app_id="krita"] layout tabbed
+    for_window [app_id="Blender"] layout tabbed
+    for_window [app_id="Inkscape"] layout tabbed
+    for_window [app_id="Emacs"] layout tabbed
+    for_window [app_id="Godot"] layout tabbed
+    for_window [app_id="qutebrowser"] layout tabbed
 # move specific apps to specific workspaces
-    assign [class="pentablet"] $ws1
-    assign [class="OpenTabletDriver.UX.Gtk"] $ws1
-    assign [class="Lxappearance"] $ws1
-    assign [class="krita"] $ws2
-    assign [class="Inkscape"] $ws2
-    assign [class="Blender"] $ws2
-    assign [class="Ardour"] $ws2
-    assign [class="Emacs"] $ws3
-    assign [class="pico8"] $ws3
-    assign [class="Godot"] $ws3
-    assign [class="firefox"] $ws4
-    assign [class="qBittorrent"] $ws4
-    assign [class="Telegram"] $ws5
-    assign [class="discord"] $ws5
-    assign [class="calibre"] $ws6
-    assign [class="Zathura"] $ws6
-    assign [class="Lutris"] $ws7
-    assign [class="Steam"] $ws7
-    assign [class="steamwebhelper"] $ws7
-    assign [class="heroic"] $ws7
-    assign [class="ProtonUp-Qt"] $ws7
-    assign [class="PrismLauncher"] $ws7
-    assign [class="dolphin-emu"] $ws7
-    assign [class="obs"] $ws8
-    assign [class="veadotube mini.x86_64"] $ws8
+    assign [app_id="pentablet"] workspace $ws1
+    assign [app_id="OpenTabletDriver.UX.Gtk"] workspace $ws1
+    assign [app_id="Lxappearance"] workspace $ws1
+    assign [app_id="krita"] workspace $ws2
+    assign [app_id="Inkscape"] workspace $ws2
+    assign [app_id="Blender"] workspace $ws2
+    assign [app_id="Ardour"] workspace $ws2
+    assign [app_id="Emacs"] workspace $ws3
+    assign [app_id="pico8"] workspace $ws3
+    assign [app_id="Godot"] workspace $ws3
+    assign [app_id="firefox"] workspace $ws4
+    assign [app_id="qBittorrent"] workspace $ws4
+    assign [app_id="Telegram"] workspace $ws5
+    assign [app_id="discord"] workspace $ws5
+    assign [app_id="Vesktop"] workspace $ws5
+    assign [app_id="Music"] workspace $ws6
+    assign [app_id="calibre"] workspace $ws6
+    assign [app_id="Zathura"] workspace $ws6
+    assign [app_id="Lutris"] workspace $ws7
+    assign [app_id="Steam"] workspace $ws7
+    assign [app_id="steamwebhelper"] workspace $ws7
+    assign [app_id="heroic"] workspace $ws7
+    assign [app_id="ProtonUp-Qt"] workspace $ws7
+    assign [app_id="PrismLauncher"] workspace $ws7
+    assign [app_id="dolphin-emu"] workspace $ws7
+    assign [app_id="obs"] workspace $ws8
+    assign [app_id="veadotube_mini"] workspace $ws8
 
 # Autostart
     exec_always --no-startup-id dunst
@@ -262,10 +266,16 @@
     exec_always --no-startup-id autotiling
 
 # Idle configuration
-    #exec swayidle -w \
-    #timeout 300 'swaylock -f -c 000000' \
-    #timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    #before-sleep 'swaylock -f -c 000000'
+        exec swayidle -w \
+            timeout 300 $lockwall \
+            timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+            timeout 6 'systemctl suspend' \
+            before-sleep $lockwall
+
+    exec swayidle -w \
+           timeout 900 'systemctl suspend' \
+            before-sleep $lockwall
+            #Locks screen after 300s, turns off display after another 300s, turns screens back on when resumed. Locks screen before computer sleeps.
 
 # Input configuration
    input "1739:52759:SYNA32A5:00_06CB:CE17_Touchpad" {
@@ -276,5 +286,15 @@
        }
     # You can get the names of your inputs by running: swaymsg -t get_inputs
     # Read `man 5 sway-input` for more information about this section.
+
+# Media Keys
+    bindsym XF86AudioRaiseVolume exec wpctl set-sink-volume u/DEFAULT_SINK@ +05%
+    bindsym XF86AudioLowerVolume exec wpctl set-sink-volume u/DEFAULT_SINK@ -05%
+    bindsym XF86AudioMute exec wpctl set-sink-mute u/DEFAULT_SINK@ toggle
+    bindsym XF86MonBrightnessUp exec light -A 5
+    bindsym XF86MonBrightnessDown exec light -U 5
+    bindsym XF86AudioPlay exec playerctl play-pause
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
 
 # include /etc/sway/config.d/*

@@ -17,11 +17,11 @@ source $ZSH/oh-my-zsh.sh
 source ~/.zplug/init.zsh
 
 # User configuration
-figlet -f small Hello, Alison! | lolcat
+figlet -f small Hello, Alison! | gay -t
 bunnyfetch
-eval $(thefuck --alias)
+#eval "$(thefuck --alias)"
 
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
@@ -35,14 +35,14 @@ export VISUAL=nvim
 #WLR_NO_HARDWARE_CURSORS=1
 #XWAYLAND_NO_GLAMOR=1
  
-# [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
-[ "$TERM" = "foot" ]
-alias l="lsd"
-alias la="lsd -A"
-alias ll="lsd -l"
-alias lt="lsd -lt"
-alias lb="lsd -lS"
-alias lsda="lsd -lA"
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+# [ "$TERM" = "foot" ]
+alias l="eza"
+alias la="eza -A"
+alias ll="eza -l"
+alias lt="eza -lt"
+alias lb="eza -lS"
+alias lsda="eza -lA"
 alias nv="nvim"
 alias nf="neofetch"
 alias ra="ranger"
@@ -73,10 +73,16 @@ alias chad="cat ~/.dotfiles/ascii/chad"
 alias whoamiyo="echo My name is | figlet && whoami | figlet | lolcat && echo yo | figlet && cat ~/.dotfiles/ascii/skylerwhiteyo | lolcat"
 alias clock="tty-clock -c -s -b -C 7"
 alias swaynv="sway --unsupported-gpu"
-alias mu="ncmpcpp"
+alias mm="ncmpcpp"
+alias du="dua i"
+alias nixconf="sudo nvim /etc/nixos/configuration.nix"
+alias nixswitch="sudo nixos-rebuild switch"
 
 #export paths
 export PATH=~/.config/emacs/bin:$PATH
 export PATH=~/.emacs.d/bin:$PATH
+export PATH=~/go/bin:$PATH
 export PATH=~/.local/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 export PATH=/var/lib/flatpak/exports/bin:$PATH
+# export PATH=/home/linuxbrew/.linuxbrew/bin/brew:$PATH
